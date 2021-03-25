@@ -397,6 +397,7 @@ constant.
 | `//book[isbn]`         | `$..book[?(@.isbn)]`                      | filter all books with isbn number                            |
 | `//book[price<10]`     | `$..book[?(@.price<10)]`                  | filter all books cheaper than 10                             |
 | `//*`                  | `$..*`                                    | all elements in XML document; all members of JSON data item  |
+| `author`               | `@.author`                                | `"J. R. R. Tolkien"` when fourth book is the current item    |
 {: #tbl-example title="Example JSONPath expressions applied to the example JSON data item"}
 
 <!-- back to normington draft; not yet merged up where needed (e.g., terminology). -->
@@ -455,13 +456,15 @@ return an error.
 
 ## Syntax
 
-Syntactically, a JSONPath consists of a root selector (`$`), which
-selects the root node of a JSON value, followed by a possibly empty
+Syntactically, a JSON Path consists of a start selector, which may either be the
+root selector $ or the current item selector @, followed by a possibly empty
 sequence of *selectors*.
 
 ~~~~ abnf
-json-path = root-selector *selector
+json-path = start-selector *selector
+start-selector = root-selector / current-item-selector
 root-selector = "$"               ; $ selects document root node
+current-item-selector = "@"       ; @ selects current node
 ~~~~
 
 The syntax and semantics of each selector is defined below.
@@ -522,6 +525,19 @@ This is the concatenation of three lists, two of length one containing `0`, `1`,
 
 As a consequence of this approach, if any of the selectors selects no nodes,
 then the whole JSONPath selects no nodes.
+
+The current item selector `@` when used outside a filter behaves as the document
+root selector unless a child node is given to the evaluator.
+When a child node is used as current item, evaluator must select it as starting
+node instead of the document root when an expression starting with `@` is
+evaluated.
+
+When a child node is used as current item, the current item selector `@` selects
+it as starting node instead of the document root.
+
+The root selector `$` should be prefered to the current item selector `@` when
+a path relative to the current item is not required or when no current item can
+be defined
 
 In what follows, the semantics of each selector are defined for each type
 of node.
