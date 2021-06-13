@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-05-30T02:19:45.152831+00:00",
+  "timestamp": "2021-06-13T01:01:38.847079+00:00",
   "repo": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
   "labels": [
     {
@@ -13593,7 +13593,7 @@
       "labels": [],
       "body": "Resolves #16\r\n\r\nAlso, I'm not sure what needs to be included in the PR as far as generated files go.  Any guidance would be helpful.",
       "createdAt": "2021-05-11T11:05:50Z",
-      "updatedAt": "2021-05-19T13:40:29Z",
+      "updatedAt": "2021-06-12T19:52:47Z",
       "baseRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
       "baseRefName": "main",
       "baseRefOid": "c8597e87e9735338ceca4eb6a99c15bf5148dcf2",
@@ -13628,19 +13628,6 @@
           "comments": []
         },
         {
-          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjYwMzk3MzY0",
-          "commit": {
-            "abbreviatedOid": "d40c4c8"
-          },
-          "author": "lastthyme",
-          "authorAssociation": "NONE",
-          "state": "APPROVED",
-          "body": "",
-          "createdAt": "2021-05-16T00:37:37Z",
-          "updatedAt": "2021-05-16T00:37:37Z",
-          "comments": []
-        },
-        {
           "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjYzMTA0NDEz",
           "commit": {
             "abbreviatedOid": "d40c4c8"
@@ -13672,6 +13659,19 @@
               "updatedAt": "2021-05-19T13:40:29Z"
             }
           ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgyMzUwNDQw",
+          "commit": {
+            "abbreviatedOid": "d40c4c8"
+          },
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-06-12T19:52:47Z",
+          "updatedAt": "2021-06-12T19:52:47Z",
+          "comments": []
         }
       ]
     },
@@ -13687,13 +13687,13 @@
       "labels": [],
       "body": "Resolves #84\r\n\r\n## Alterations\r\n\r\n- Removed `Object`, and `Array` since they are defined in 8259.  Replaced with extended verbiage at the beginning of the section that declares that 8259 applies.\r\n- Replaced \"JSON value\" with \"value\" in line with the above.\r\n- Relabeled \"output path\" as \"normalized path\"\r\n\r\n## Additions\r\n\r\n- String - a clarification and expansion on the JSON definition\r\n- Root Node\r\n\r\n## Other\r\n\r\n- Reordered terms and paragraphs so that reading through doesn't use terms that haven't been defined yet (as much as possible).\r\n- Removed a redundant parenthetical sentence in the *Processing Model* section.\r\n- Removed some un-necessary self-references (e.g. \"JSONPath query\" rather than just \"query\").\r\n- Made some general edits\r\n\r\n## Notes\r\n\r\n### Existing in-place definitions\r\n\r\n\"Selector\" and \"slice\" are defined in-place where they're needed.  Do we need to define them in the terminology section as well?\r\n\r\n### Key\r\n\r\nThe draft currently uses \"name\" instead of \"key\" as we had agreed in the meeting.  I suspect that this is because 8259 uses \"name.\"  Since we're trying to align with that, I've left in \"name.\"\r\n\r\n### Index\r\n\r\nWe discussed using \"index\" as a generic term for either a numeric index for arrays or a name for objects.  However in editing this section, I'm starting to second-guess that decision.\r\n\r\nGiven that we've opted to define a union selector as taking as arguments \"indices,\" \"slices,\" and/or \"filters,\" I don't think it's too much of a stretch to separately include \"indices\" and \"names.\"  Because of this, I left the definition of \"index\" as is.\r\n\r\nThis also addresses the tendency to associate \"index\" with arrays, as @glyn had mentioned.\r\n\r\nI'm leaving the changes to \"union selector\" to include all of the various things it can accept for another PR as this is solely to clean up terminology.\r\n\r\n### Emphasizing terms\r\n\r\nI tried capitalizing defined terms to emphasize their special meaning.  It got weird to read, though, since they're used so frequently.  Maybe not _every_ instance of the terms needs to be emphasized.  I'm not sure.  Happy to discuss.\r\n\r\nI've left this change out for now, but there are definitely inconsistencies present already.\r\n",
       "createdAt": "2021-05-12T10:40:26Z",
-      "updatedAt": "2021-05-30T00:50:43Z",
+      "updatedAt": "2021-06-12T06:49:13Z",
       "baseRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
       "baseRefName": "main",
       "baseRefOid": "c8597e87e9735338ceca4eb6a99c15bf5148dcf2",
       "headRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
       "headRefName": "84-terminology",
-      "headRefOid": "34ba61b271d5b10b960fe1aaa3b0ae72ae202263",
+      "headRefOid": "fcc85dbb3c8e828e94cbbce6d3b8725a2c71ffa9",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -13775,6 +13775,13 @@
           "body": "@cabo @goessner @glyn I've made some updates.  Just tagging you in.",
           "createdAt": "2021-05-29T22:52:47Z",
           "updatedAt": "2021-05-29T22:52:47Z"
+        },
+        {
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "body": "This draft is still mostly a collection of regressions.\r\nE.g., the section about strings is seriously misleading.\r\nThere is no point in this spec explaining JSON inner workings.\r\n(And, of course, that is similar to the symptoms of acting like the definitions in 8259, which aren't really proper definitions anyway, are useful here.)",
+          "createdAt": "2021-06-11T07:58:40Z",
+          "updatedAt": "2021-06-11T07:58:40Z"
         }
       ],
       "reviews": [
@@ -14117,6 +14124,781 @@
               "updatedAt": "2021-05-29T22:36:27Z"
             }
           ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgxNDY2NDg5",
+          "commit": {
+            "abbreviatedOid": "34ba61b"
+          },
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-06-11T05:41:39Z",
+          "updatedAt": "2021-06-11T05:41:39Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgxNTYxMDg1",
+          "commit": {
+            "abbreviatedOid": "34ba61b"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "CHANGES_REQUESTED",
+          "body": "I really don't have time to reread the entire set of changes, but this snippet seriously discourages me from spending any time at all.\r\n",
+          "createdAt": "2021-06-11T08:05:15Z",
+          "updatedAt": "2021-06-11T08:06:35Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "That is *NOT* what a string is for the purpose of this specification.\r\nWe do not need to confuse our readers.\r\n(It also is completely unrelated to the JSON syntax.)",
+              "createdAt": "2021-06-11T08:05:15Z",
+              "updatedAt": "2021-06-11T08:06:35Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgxNTk5MDMz",
+          "commit": {
+            "abbreviatedOid": "34ba61b"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-11T08:48:06Z",
+          "updatedAt": "2021-06-11T08:48:06Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "Maybe you should try offering an alternative because this is PRECISELY what a string is for JSON Path: a single- or double-quoted sequence of characters.  JSON uses UTF-8, so that's what I proposed.  If you think it can be better, how so?",
+              "createdAt": "2021-06-11T08:48:06Z",
+              "updatedAt": "2021-06-11T08:48:06Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgyMDQ3NjMy",
+          "commit": {
+            "abbreviatedOid": "34ba61b"
+          },
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-11T16:56:05Z",
+          "updatedAt": "2021-06-11T16:56:05Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "Replace the back-tick with a single quote:\r\n```suggestion\r\n: A sequence of UTF-8 characters surrounded by either single quotes (')\r\n```",
+              "createdAt": "2021-06-11T16:56:05Z",
+              "updatedAt": "2021-06-11T16:56:06Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgyMDUwOTA3",
+          "commit": {
+            "abbreviatedOid": "34ba61b"
+          },
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Looks ok to me except the erroneous back-tick needs to be replaced with a single quote.\r\n\r\nI see this PR as not necessarily the end of clarifying the terminology, but as a good step along the road.",
+          "createdAt": "2021-06-11T17:00:23Z",
+          "updatedAt": "2021-06-11T17:00:23Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgyMjkxOTkw",
+          "commit": {
+            "abbreviatedOid": "fcc85db"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-12T03:22:37Z",
+          "updatedAt": "2021-06-12T03:22:37Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "Committed. Nice catch.",
+              "createdAt": "2021-06-12T03:22:37Z",
+              "updatedAt": "2021-06-12T03:22:37Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgyMzAyNzU0",
+          "commit": {
+            "abbreviatedOid": "fcc85db"
+          },
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-06-12T06:49:13Z",
+          "updatedAt": "2021-06-12T06:49:13Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 98,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjY3MDk3Nzgx",
+      "title": "Selectors reworked ...",
+      "url": "https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/98",
+      "state": "OPEN",
+      "author": "goessner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "... Filter selectors added",
+      "createdAt": "2021-06-10T17:11:17Z",
+      "updatedAt": "2021-06-11T09:12:24Z",
+      "baseRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
+      "baseRefName": "main",
+      "baseRefOid": "c8597e87e9735338ceca4eb6a99c15bf5148dcf2",
+      "headRepository": "goessner/draft-ietf-jsonpath-base",
+      "headRefName": "main",
+      "headRefOid": "2be1afeb81e1d218ddb5445832d742894a2df3ab",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "body": "This PR (actually PR #98) appears to revert all the fixes in 9be270d\r\nIs this intentional?",
+          "createdAt": "2021-06-11T05:02:05Z",
+          "updatedAt": "2021-06-11T05:02:05Z"
+        },
+        {
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "hmm .. so we generally prefer readable characters over their unicode \nrepresentation ?\n\nI will change that (back).\n\nAm 11.06.2021 um 07:02 schrieb cabo:\n>\n> This PR (actually PR #98 \n> <https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/98>) \n> appears to revert all the fixes in 9be270d \n> <https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/commit/9be270da87994afe10cb4424cf39413114de1472>\n> Is this intentional?\n>\n> \u2014\n> You are receiving this because you were mentioned.\n> Reply to this email directly, view it on GitHub \n> <https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/98#issuecomment-859266332>, \n> or unsubscribe \n> <https://github.com/notifications/unsubscribe-auth/ABFM6WVPPRVPUGQNFCNXCNTTSGKFVANCNFSM46O5XMJQ>.\n>\n>\n> <http://www.avg.com/email-signature?utm_medium=email&utm_source=link&utm_campaign=sig-email&utm_content=emailclient> \n> \tVirenfrei. www.avg.com \n> <http://www.avg.com/email-signature?utm_medium=email&utm_source=link&utm_campaign=sig-email&utm_content=emailclient> \n>\n>\n> <#DAB4FAD8-2DD7-40BB-A1B8-4E2AA1F9FDF2>\n\n",
+          "createdAt": "2021-06-11T05:16:59Z",
+          "updatedAt": "2021-06-11T05:16:59Z"
+        },
+        {
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "body": "Indeed, I do prefer readable documents over unreadable ones :-)\r\n\r\nWe can discuss this, but my question really was about undoing a change that I thought we had agreed to make.\r\n",
+          "createdAt": "2021-06-11T05:21:17Z",
+          "updatedAt": "2021-06-11T05:21:17Z"
+        },
+        {
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "body": ">  I will change that (back).\r\n\r\nPlease use the branch pr-98 or merge it, before generating more changes.\r\n\r\n(My tools have a hard time juggling multiple branches that are called main, hence I created that branch to make my fixes.)\r\n\r\n",
+          "createdAt": "2021-06-11T05:24:32Z",
+          "updatedAt": "2021-06-11T05:24:32Z"
+        },
+        {
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I would like to thank all for those valuable comments and requested changes.\n\nI will accept most changes without further comments.\n\nCan return to here tomorrow at the earliest.\n\n--\nsg\n",
+          "createdAt": "2021-06-11T09:12:24Z",
+          "updatedAt": "2021-06-11T09:12:24Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgxMzYyOTQy",
+          "commit": {
+            "abbreviatedOid": "2be1afe"
+          },
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "It's wonderful to see a PR covering filters and descendants. Well done @goessner!\r\n\r\nThe downside is that the PR is quite large and I ran out of steam in my initial sitting. In other words, I'll probably have more detailed comments next time I look.\r\n\r\nI would have preferred a separate PR for descendants and then a series of PRs gradually filling out filter expressions, so that detailed review is more feasible. Once we get two or three people's comments on this PR, it's likely to become unmanageable.",
+          "createdAt": "2021-06-11T00:45:10Z",
+          "updatedAt": "2021-06-11T01:19:50Z",
+          "comments": [
+            {
+              "originalPosition": 177,
+              "body": "```suggestion\r\nA dot selector combined with a single asterisk is a wild card. It selects all member values of an object as well as all elements of an array. Applying the `dot-wild-selector` to a primitive JSON value (a number, string, or literal) selects\r\nno value.\r\n```",
+              "createdAt": "2021-06-11T00:45:10Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            },
+            {
+              "originalPosition": 158,
+              "body": "```suggestion\r\nThe dot wild card selector has the form `'.*'`.\r\n```",
+              "createdAt": "2021-06-11T00:45:46Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            },
+            {
+              "originalPosition": 138,
+              "body": "```suggestion\r\nMember names containing other ASCII characters than allowed by `dot-selector` &ndash; especially space `' '` and minus `'-'` characters MUST NOT be used with the `dot-selector`. Member names containing these MAY be addressed by the `index-selector` instead. \r\n```",
+              "createdAt": "2021-06-11T00:46:20Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            },
+            {
+              "originalPosition": 342,
+              "body": "```suggestion\r\nThe index wild card selector has the form `'[*]'`.\r\n```",
+              "createdAt": "2021-06-11T00:48:12Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            },
+            {
+              "originalPosition": 355,
+              "body": "```suggestion\r\nAn index selector combined with a single asterisk is a wild card. It selects all member values of an object as well as all elements of an array. Applying the `index-wild-selector` to a primitive JSON value (a number, string, or literal) selects no value. The `index-wild-selector` behaves identically to the `dot-wild-selector`.\r\n```",
+              "createdAt": "2021-06-11T00:49:41Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            },
+            {
+              "originalPosition": 369,
+              "body": "```suggestion\r\nThe array slice selector has the form `'[<start>:<end>:<step>]'`. It selects elements starting at index `<start>`, ending at &ndash; but not including &ndash; `<end>`, while incrementing by `step`.\r\n```",
+              "createdAt": "2021-06-11T00:51:10Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            },
+            {
+              "originalPosition": 446,
+              "body": "The semantics needs to be expanded (to make it clear how each kind of descendant selector applies to the various kinds of values) and the order of enumeration needs to be specified.",
+              "createdAt": "2021-06-11T00:58:33Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            },
+            {
+              "originalPosition": 467,
+              "body": "```suggestion\r\nAny duplicated selected nodes are kept in the node list.\r\n```",
+              "createdAt": "2021-06-11T01:01:35Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            },
+            {
+              "originalPosition": 482,
+              "body": "```suggestion\r\nThe current item is selected if and only if the result is `true`.\r\n```",
+              "createdAt": "2021-06-11T01:04:05Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            },
+            {
+              "originalPosition": 513,
+              "body": "```suggestion\r\n* Types are not implicitly converted in comparisons. So `\"13 == '13'\"` selects no value.\r\n```",
+              "createdAt": "2021-06-11T01:07:49Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            },
+            {
+              "originalPosition": 514,
+              "body": "```suggestion\r\n* A member or element value by itself is *falsy* only, if it does not exist. Otherwise it is *truthy*, resulting in its value. To be more specific explicit comparisons are necessary. This existence test &ndash; as an exception of the general rule &ndash; also works with complex values.\r\n```",
+              "createdAt": "2021-06-11T01:08:16Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            },
+            {
+              "originalPosition": 517,
+              "body": "```suggestion\r\n* Explicit boolean type conversion is done by the not operator `neg-op`.\r\n```",
+              "createdAt": "2021-06-11T01:08:46Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            },
+            {
+              "originalPosition": 514,
+              "body": "Please define the terms _truthy_ and _falsy_. ",
+              "createdAt": "2021-06-11T01:11:41Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            },
+            {
+              "originalPosition": 517,
+              "body": "```suggestion\r\n* Explicit boolean type conversion is done by the not operator `neg-op`.\r\n```\r\nbut what does this mean?",
+              "createdAt": "2021-06-11T01:12:50Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            },
+            {
+              "originalPosition": 518,
+              "body": "This statement seems out of place in the syntax section. Do we need an \"Informal Semantics\" section?",
+              "createdAt": "2021-06-11T01:13:41Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            },
+            {
+              "originalPosition": 506,
+              "body": "Please define the semantics of `index` in the semantics section.",
+              "createdAt": "2021-06-11T01:15:21Z",
+              "updatedAt": "2021-06-11T01:19:50Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgxNDMzNDA5",
+          "commit": {
+            "abbreviatedOid": "2be1afe"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "I agree that these sets of changes (the selectors and defining the filters) could have been better served in two PRs, but this looks like a good start.",
+          "createdAt": "2021-06-11T04:08:16Z",
+          "updatedAt": "2021-06-11T06:04:03Z",
+          "comments": [
+            {
+              "originalPosition": 104,
+              "body": "This is interesting.  You're claiming the thing that's named \"Argument\" is anonymous, but once referenced with `$` it suddenly has a name?  I'm not sure this provides any benefit over just saying that the Argument _is_ the root node and can be referenced with `$`.",
+              "createdAt": "2021-06-11T04:08:16Z",
+              "updatedAt": "2021-06-11T06:04:03Z"
+            },
+            {
+              "originalPosition": 130,
+              "body": "This definition also resolves #16 (and duplicate #94). \ud83d\udc4d ",
+              "createdAt": "2021-06-11T04:09:44Z",
+              "updatedAt": "2021-06-11T06:04:03Z"
+            },
+            {
+              "originalPosition": 138,
+              "body": "This is more of a Path authorship suggestion rather than a requirement of the specification (as would be enforced by an implementation).\r\n\r\nFor example, simply implementing the prescribed syntax would enforce that these characters are invalid.  The implementation can't (or probably shouldn't) coerce such a syntax error into the \"index-selector\" syntax.  It's up to the author of the Path to build a syntactically correct Path.\r\n\r\nI think we need to (as a policy) highlight such authorship suggestions separately from the requirements.",
+              "createdAt": "2021-06-11T04:17:18Z",
+              "updatedAt": "2021-06-11T06:04:04Z"
+            },
+            {
+              "originalPosition": 150,
+              "body": "Good use of \"undefined behavior\" \ud83d\udc4d ",
+              "createdAt": "2021-06-11T04:18:55Z",
+              "updatedAt": "2021-06-11T06:04:03Z"
+            },
+            {
+              "originalPosition": 226,
+              "body": "What is the `*` for in `*double-quoted`?  The other components (e.g. `ESC` and `unescaped`) don't have them.",
+              "createdAt": "2021-06-11T04:21:56Z",
+              "updatedAt": "2021-06-11T06:04:03Z"
+            },
+            {
+              "originalPosition": 280,
+              "body": "Should we just specify that the number must be base-10?  This would also exclude hexadecimal formats such as `0xf312`.",
+              "createdAt": "2021-06-11T04:24:09Z",
+              "updatedAt": "2021-06-11T06:04:03Z"
+            },
+            {
+              "originalPosition": 329,
+              "body": "We need to add verbiage that says an index outside of the bounds of the array (positive or negative) selects no nodes.",
+              "createdAt": "2021-06-11T04:29:21Z",
+              "updatedAt": "2021-06-11T06:04:03Z"
+            },
+            {
+              "originalPosition": 63,
+              "body": "I don't think we need all of the surrounding single quotes, e.g. \r\n\r\n```\r\n`'$'`\r\n```\r\n\r\nshould just be\r\n\r\n```\r\n`$`\r\n```\r\n\r\nYou've used a backtick to format the text, which (to me at least) suggests that the content of the formatted text is the selector, which is `'$'` rather than just `$`.\r\n\r\n```suggestion\r\n  * Root selector `$`\r\n  * Dot selector `.<name>`, used with object member names exclusively.\r\n  * Dot wild card selector `.*`.\r\n  * Index selector `[<index>]`, where `<index>` is either an (possibly negative) array index or an object member name.\r\n  * Index wild card selector `[*]`.\r\n  * Array slice selector `[<start>:<end>:<step>]`, where `<start>`, `<end>`, `<step>` are integer literals.\r\n  * Nested descendants selector `..`.\r\n  * Union selector `[<sel1>,<sel2>,...,<selN>]`, holding a comma delimited list of selectors.\r\n  * Filter selector `[?(<expr>)]`\r\n  * Current item selector `@`\r\n```\r\n\r\nI also noticed that you're using the extra single quotes in a lot of other places.  I'm not going to comment on every usage.",
+              "createdAt": "2021-06-11T04:39:37Z",
+              "updatedAt": "2021-06-11T06:04:03Z"
+            },
+            {
+              "originalPosition": 379,
+              "body": "Are `ws` components required?  That would suggest we need it in the other selectors.\r\n\r\nMaybe we can leave it out (or at least unchanged) until we figure out #24.  There are other places that include `ws` as well.",
+              "createdAt": "2021-06-11T04:49:47Z",
+              "updatedAt": "2021-06-11T06:04:03Z"
+            },
+            {
+              "originalPosition": 392,
+              "body": "This change doesn't allow for the second colon also being optional (e.g. `:` or `2:4`).",
+              "createdAt": "2021-06-11T04:51:26Z",
+              "updatedAt": "2021-06-11T06:04:03Z"
+            },
+            {
+              "originalPosition": 433,
+              "body": "The allowances of this selector are somewhat different than the `dot-selector`, so I don't think it's right to say that the `descendant-selector` can _replace_ the `dot-selector`.  I think we should just treat its syntax on its own rather than comparing it to another selector.",
+              "createdAt": "2021-06-11T05:07:24Z",
+              "updatedAt": "2021-06-11T06:04:03Z"
+            },
+            {
+              "originalPosition": 460,
+              "body": "I would say that _any_ of the valid index selectors would be valid here, including a filter selector.  As such, it may make sense to move this section below the `filter-selector` section.\r\n\r\nAlthough it might not make sense to do so, it may be valid to include a wildcard as well, e.g. `[1, *]`",
+              "createdAt": "2021-06-11T05:11:21Z",
+              "updatedAt": "2021-06-11T06:04:03Z"
+            },
+            {
+              "originalPosition": 511,
+              "body": "Do we have a consensus for supporting expressions without the parentheses?  I don't remember this change being discussed.",
+              "createdAt": "2021-06-11T05:19:33Z",
+              "updatedAt": "2021-06-11T06:04:03Z"
+            },
+            {
+              "originalPosition": 474,
+              "body": "You seem to be missing a closing angle bracket `>`, e.g. `<expr` vs `<expr>`.  The error is present every time this example syntax is used.",
+              "createdAt": "2021-06-11T05:21:16Z",
+              "updatedAt": "2021-06-11T06:04:03Z"
+            },
+            {
+              "originalPosition": 505,
+              "body": "I'm not sure we have a precedence or decision on functions/calculated values yet (`index()` or otherwise).  It's probably best to leave this out until we can identify a family of functions that we'd like to include so that we can decide on a format that works for everything.",
+              "createdAt": "2021-06-11T05:30:34Z",
+              "updatedAt": "2021-06-11T06:04:04Z"
+            },
+            {
+              "originalPosition": 492,
+              "body": "`container` needs a definition",
+              "createdAt": "2021-06-11T05:31:51Z",
+              "updatedAt": "2021-06-11T06:04:04Z"
+            },
+            {
+              "originalPosition": 484,
+              "body": "Did we decide against arithmetic operations?  These are widely supported and should (perhaps eventually) be supported.",
+              "createdAt": "2021-06-11T05:45:47Z",
+              "updatedAt": "2021-06-11T06:04:04Z"
+            },
+            {
+              "originalPosition": 514,
+              "body": "Perhaps instead simply drop \"truthy\" and \"falsy\" in favor of just saying that a `rel-path-value` by itself select the item if the relative path can be resolved (or some such language).\r\n\r\nHaving \"truthy\" and \"falsy\" at all contradicts the \"explicit comparisons are necessary\" statement since these terms are typically used in systems with loose comparisons.",
+              "createdAt": "2021-06-11T05:54:01Z",
+              "updatedAt": "2021-06-11T06:04:04Z"
+            },
+            {
+              "originalPosition": 504,
+              "body": "I would suggest support for any selector except another filter selector (but it may be supported later).  This would allow further support for things like `$[?(@..foo contains 42)]` which would return true for any item that contains a `foo` property with a value of `42` at any descended level.",
+              "createdAt": "2021-06-11T05:59:43Z",
+              "updatedAt": "2021-06-11T06:04:04Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 99,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjY3MTcxNjA0",
+      "title": "Pr 98",
+      "url": "https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/99",
+      "state": "OPEN",
+      "author": "cabo",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "mit Fix f\u00fcr den YAML-nit",
+      "createdAt": "2021-06-10T18:20:24Z",
+      "updatedAt": "2021-06-11T09:35:24Z",
+      "baseRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
+      "baseRefName": "main",
+      "baseRefOid": "c8597e87e9735338ceca4eb6a99c15bf5148dcf2",
+      "headRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
+      "headRefName": "pr-98",
+      "headRefOid": "31ee9bc47b4c0b5c73aa73dcfd4d830e03947a0c",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@cabo/@goessner can you rename the PR to better reflect what it's trying to do, please?  Also a summary of changes would be kind.",
+          "createdAt": "2021-06-11T03:42:16Z",
+          "updatedAt": "2021-06-11T03:43:00Z"
+        },
+        {
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "body": "This PR (actually PR #98) reverts all the fixes in 9be270d\r\nIs this intentional?\r\n",
+          "createdAt": "2021-06-11T05:00:27Z",
+          "updatedAt": "2021-06-11T05:00:27Z"
+        },
+        {
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I understood that multiple small PR's are preferrable, which was not so \neasy with the complete rewrite of selectors. I can do that from now on.\n\nAm 11.06.2021 um 05:42 schrieb Greg Dennis:\n>\n> @goessner <https://github.com/goessner> can you rename the PR to \n> better reflect what it's trying to do, please? Also a summary of \n> changes would be kind.\n>\n> \u2014\n> You are receiving this because you were mentioned.\n> Reply to this email directly, view it on GitHub \n> <https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/99#issuecomment-859239841>, \n> or unsubscribe \n> <https://github.com/notifications/unsubscribe-auth/ABFM6WUCDKLUZXFSHFSYTHTTSGA2JANCNFSM46PBITVQ>.\n>\n>\n> <http://www.avg.com/email-signature?utm_medium=email&utm_source=link&utm_campaign=sig-email&utm_content=emailclient> \n> \tVirenfrei. www.avg.com \n> <http://www.avg.com/email-signature?utm_medium=email&utm_source=link&utm_campaign=sig-email&utm_content=emailclient> \n>\n>\n> <#DAB4FAD8-2DD7-40BB-A1B8-4E2AA1F9FDF2>\n\n",
+          "createdAt": "2021-06-11T05:21:31Z",
+          "updatedAt": "2021-06-11T05:21:31Z"
+        },
+        {
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I understood that multiple small PR's are preferrable, which was not so easy with the complete rewrite of selectors. I can do that from now on.\r\n\r\n@goessner Do you mean you will now break this PR into multiple small PRs? (That would be great!)",
+          "createdAt": "2021-06-11T05:27:29Z",
+          "updatedAt": "2021-06-11T05:27:48Z"
+        },
+        {
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "\n> ------------------------------------------------------------------------\n>\n> In draft-ietf-jsonpath-base.md \n> <https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/99#discussion_r649782358>:\n>\n> > @@ -97,6 +97,13 @@ informative:\n>       seriesinfo:\n>         ISO/IEC 22537:2006\n>       date: 2006\n> +  E4X-overview:\n>\n> I don't think we need this -- this seems to be a remnant from an older \n> revision.\n>\n> There are several such remnants, which make it hard to review this PR.\n>\n\noops ... should have been ES4 overview\n\nhttp://archives.ecma-international.org/2007/misc/overview.pdf\n\nHere array slice is documented the first time (pg.34)\u00a0 ... that's all.\nWe can leave it out.\n\n> >  \n>   #### Semantics\n>   {: numbered=\"false\" toc=\"exclude\"}\n>   \n> -A dot child name which is not a single asterisk (`*`) is considered to\n> -have a member name.\n> -It selects the value corresponding to the name from any object node.\n> -It selects\n> -no nodes from a node which is not a object.\n> -\n> -The member name of a dot child name is the sequence of Unicode characters contained\n> -in that name.\n> -\n> -A dot child name consisting of a single asterisk is a wild card. It selects\n> -all the values of any object node.\n> -It also selects all the elements of any array node.\n> -It selects no nodes from\n> -number, string, or literal nodes.\n> +The Argument &mdash; the root JSON value &ndash; is anonymous by nature. By getting assigned the universal name `'$'` it becomes the root node.\n>\n> Writing the actual characters instead of HTML entity references is \n> preferred.\n>\n&ndash; is not accessible per keyboard.\n>\n> The same dashes should be used at the start and at the end of an \n> interjection.\n>\nyes .. typo ..\n\n\n",
+          "createdAt": "2021-06-11T09:22:20Z",
+          "updatedAt": "2021-06-11T09:22:20Z"
+        },
+        {
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "yes .. we need a new issue here .. let's discuss.\n\nAm 11.06.2021 um 10:12 schrieb cabo:\n>\n> ***@***.**** commented on this pull request.\n>\n> ------------------------------------------------------------------------\n>\n> In draft-ietf-jsonpath-base.md \n> <https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/99#discussion_r649781760>:\n>\n> > +in-op        = \" in \"                               ; in operator\n> +comparable   = number / quoted-string /             ; primitive ...\n> +               true / false / null /                ; values only\n> +               rel-path-val /                       ; descendant value\n> +               calc_val /                           ; calculated value\n> +               json-path                            ; any value\n> +\n> +rel-path-val = \"@\" *(dot-selector / index-selector)\n> +calc_val     = func \"(\" [rel-path-val / json-path] \")\"\n> +func         = \"index\"\n> +~~~~\n> +\n> +Notes:\n> +\n> +* Parenthesis can be used with `boolean-expr` for grouping. So filter selection syntax in the original proposal `'[?(<expr)]'` is naturally contained in the current lean syntax `'[?<expr]'` as a special case.\n> +* Comparisons are restricted to primitive values `number`, `string`, `true`, `false`, `null`. Comparisons with complex values will fail, i.e. no selection occurs.\n>\n> So it appears we need a new issue.\n>\n>   * Comparison with structured values\n>   * Should comparison with structured values (e.g., ***@***.*** == [1, 2]|)\n>     be supported?\n>   * If it is not supported, should this silently fail or the attempt\n>     cause a syntax error (in #99\n>     <https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/99>,\n>     it causes a syntax error, but then the text says something else).\n>\n> \u2014\n> You are receiving this because you were mentioned.\n> Reply to this email directly, view it on GitHub \n> <https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/99#discussion_r649781760>, \n> or unsubscribe \n> <https://github.com/notifications/unsubscribe-auth/ABFM6WUPIASBBK4FBC2V2EDTSHAQNANCNFSM46PBITVQ>.\n>\n>\n> <http://www.avg.com/email-signature?utm_medium=email&utm_source=link&utm_campaign=sig-email&utm_content=emailclient> \n> \tVirenfrei. www.avg.com \n> <http://www.avg.com/email-signature?utm_medium=email&utm_source=link&utm_campaign=sig-email&utm_content=emailclient> \n>\n>\n> <#DAB4FAD8-2DD7-40BB-A1B8-4E2AA1F9FDF2>\n\n",
+          "createdAt": "2021-06-11T09:23:30Z",
+          "updatedAt": "2021-06-11T09:23:30Z"
+        },
+        {
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "body": "> > + E4X-overview:\n> \n> oops ... should have been ES4 overview\n> \n> http://archives.ecma-international.org/2007/misc/overview.pdf\n> \n> Here array slice is documented the first time (pg.34)  ... that's all.\n> We can leave it out.\n\nI don\u2019t have a strong opinion here, but I think we are better off referencing the current state in ES2020 (also applies to {{SLICE}}).\n\n(The bibliography entry `E4X-overview` turned up in my quick glance at the PR because it is not currently being used.  So we need to add a citation or remove the entry.  This is all housekeeping\u2026  Let\u2019s try to extract the technical discussion points first.)\n\nGr\u00fc\u00dfe, Carsten\n\n",
+          "createdAt": "2021-06-11T09:35:24Z",
+          "updatedAt": "2021-06-11T09:35:24Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgxNDYzMTQ5",
+          "commit": {
+            "abbreviatedOid": "31ee9bc"
+          },
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-11T05:34:06Z",
+          "updatedAt": "2021-06-11T05:34:07Z",
+          "comments": [
+            {
+              "originalPosition": 505,
+              "body": "Rather than fail silently, another option would be to avoid this situation in the syntax. Then failures will produce a syntax error, which is much clearer to the user. Have you checked for consensus of current implementations? [This issue comment](https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/issues/64#issuecomment-838280246) is relevant.",
+              "createdAt": "2021-06-11T05:34:06Z",
+              "updatedAt": "2021-06-11T05:34:07Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgxNDc5NzQy",
+          "commit": {
+            "abbreviatedOid": "31ee9bc"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-11T06:10:42Z",
+          "updatedAt": "2021-06-11T06:10:42Z",
+          "comments": [
+            {
+              "originalPosition": 505,
+              "body": "I would actually like to be able to say `@.foo == [1,2]`.  I think this is a valid use case.",
+              "createdAt": "2021-06-11T06:10:42Z",
+              "updatedAt": "2021-06-11T06:10:42Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgxNTY3MzEx",
+          "commit": {
+            "abbreviatedOid": "31ee9bc"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-11T08:12:37Z",
+          "updatedAt": "2021-06-11T08:12:37Z",
+          "comments": [
+            {
+              "originalPosition": 505,
+              "body": "So it appears we need a new issue.\r\n\r\n* Comparison with structured values\r\n* Should comparison with structured values (e.g., `@.foo == [1, 2]`) be supported?\r\n* If it is not supported, should this silently fail or the attempt cause a syntax error (in #99, it causes a syntax error, but then the text says something else).\r\n",
+              "createdAt": "2021-06-11T08:12:37Z",
+              "updatedAt": "2021-06-11T08:12:37Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgxNTY4MDY4",
+          "commit": {
+            "abbreviatedOid": "31ee9bc"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "A few initial impressions.",
+          "createdAt": "2021-06-11T08:13:30Z",
+          "updatedAt": "2021-06-11T08:20:21Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "I don't think we need this -- this seems to be a remnant from an older revision.\r\n\r\nThere are several such remnants, which make it hard to review this PR.\r\n",
+              "createdAt": "2021-06-11T08:13:30Z",
+              "updatedAt": "2021-06-11T08:20:22Z"
+            },
+            {
+              "originalPosition": 100,
+              "body": "(Already discussed.)",
+              "createdAt": "2021-06-11T08:14:09Z",
+              "updatedAt": "2021-06-11T08:20:22Z"
+            },
+            {
+              "originalPosition": 120,
+              "body": "Writing the actual characters instead of HTML entity references is preferred.\r\n\r\nThe same dashes should be used at the start and at the end of an interjection.",
+              "createdAt": "2021-06-11T08:15:05Z",
+              "updatedAt": "2021-06-11T08:20:22Z"
+            },
+            {
+              "originalPosition": 205,
+              "body": "If we want to use unnumbered sections more often, we might want to make an ALD for this to reduce noise.\r\nUnnumbered sections are a bit of a boobytrap as they have to be used consistently in the XML.",
+              "createdAt": "2021-06-11T08:16:33Z",
+              "updatedAt": "2021-06-11T08:20:22Z"
+            },
+            {
+              "originalPosition": 231,
+              "body": "I think we should have a separate set of definitions for literals.  This is particular important because JSONPath literals have a more permissive syntax than that of JSON.  (Should they?)\r\nLiterals should never be confused with the data themselves (i.e., we never should say \"string\" when we mean \"string literal\").",
+              "createdAt": "2021-06-11T08:18:19Z",
+              "updatedAt": "2021-06-11T08:20:22Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgxNjE2MDMx",
+          "commit": {
+            "abbreviatedOid": "31ee9bc"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-11T09:06:52Z",
+          "updatedAt": "2021-06-11T09:06:53Z",
+          "comments": [
+            {
+              "originalPosition": 231,
+              "body": "> Literals should never be confused with the data themselves (i.e., we never should say \"string\" when we mean \"string literal\").\r\n\r\nWhat?  When was this discussed?  Do we now have to say \"boolean literal\" or \"numeric literal?\"  Where does JSON Path ever use strings that AREN'T a string literal?",
+              "createdAt": "2021-06-11T09:06:53Z",
+              "updatedAt": "2021-06-11T09:06:53Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgxNjM0ODQy",
+          "commit": {
+            "abbreviatedOid": "31ee9bc"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-11T09:28:14Z",
+          "updatedAt": "2021-06-11T09:28:14Z",
+          "comments": [
+            {
+              "originalPosition": 231,
+              "body": "> > Literals should never be confused with the data themselves (i.e., we never should say \"string\" when we mean \"string literal\").\r\n> \r\n> What? When was this discussed? \r\n\r\nI wasn't there.  Must have been before 1972, but I'm pretty sure after 1960.\r\n\r\n> Do we now have to say \"boolean literal\" or \"numeric literal?\" \r\n\r\nIf we mean the literal, yes.  If we mean the value, no.\r\nThe important part is to make the distinction.\r\n\r\n> Where does JSON Path ever use strings that AREN'T a string literal?\r\n\r\nThe strings in the argument are no longer literals at the time we get them.\r\nAlso, as soon as a string literal in the query is parsed, it is the resulting value that is then used; different literals for the same value are not distinguishable for the purposes of the language.\r\n\r\nOf course, all this can be done differently, but that is the way it has been done in language design for approximately half a century.\r\n",
+              "createdAt": "2021-06-11T09:28:14Z",
+              "updatedAt": "2021-06-11T09:28:14Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 100,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjY3Njc1NjEw",
+      "title": "Try to avoid the \"default branch\" noise in builds",
+      "url": "https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/100",
+      "state": "MERGED",
+      "author": "cabo",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "https://github.com/martinthomson/i-d-template/issues/273#issuecomment-859173896",
+      "createdAt": "2021-06-11T04:50:41Z",
+      "updatedAt": "2021-06-12T06:51:07Z",
+      "baseRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
+      "baseRefName": "main",
+      "baseRefOid": "c8597e87e9735338ceca4eb6a99c15bf5148dcf2",
+      "headRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
+      "headRefName": "fix-build",
+      "headRefOid": "71414d16fb888385a2deb10edffccae631b9deb9",
+      "closedAt": "2021-06-12T06:51:00Z",
+      "mergedAt": "2021-06-12T06:50:59Z",
+      "mergedBy": "glyn",
+      "mergeCommit": {
+        "oid": "4b8e9e9f05cb20d905e0c863c02a905c321af51f"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgxNDY3NTQy",
+          "commit": {
+            "abbreviatedOid": "71414d1"
+          },
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-06-11T05:44:14Z",
+          "updatedAt": "2021-06-11T05:44:14Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgyMjE1NDYw",
+          "commit": {
+            "abbreviatedOid": "71414d1"
+          },
+          "author": "sthagen",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM.",
+          "createdAt": "2021-06-11T21:05:30Z",
+          "updatedAt": "2021-06-11T21:05:30Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 101,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjY4ODg3NTk5",
+      "title": "Slightly fixed #97",
+      "url": "https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/101",
+      "state": "OPEN",
+      "author": "cabo",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2021-06-12T15:03:06Z",
+      "updatedAt": "2021-06-12T19:44:07Z",
+      "baseRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
+      "baseRefName": "main",
+      "baseRefOid": "4b8e9e9f05cb20d905e0c863c02a905c321af51f",
+      "headRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
+      "headRefName": "97-step1",
+      "headRefOid": "12f7c9ab76bbf9e63396ffb9de2962cb08d0053f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgyMzM0NzA3",
+          "commit": {
+            "abbreviatedOid": "12f7c9a"
+          },
+          "author": "sthagen",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM - as a first step to \u201epull the cow from the ice\u201c",
+          "createdAt": "2021-06-12T15:50:22Z",
+          "updatedAt": "2021-06-12T15:50:22Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgyMzM5MTg4",
+          "commit": {
+            "abbreviatedOid": "12f7c9a"
+          },
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "well .. let's go on and asymptotically approach the optimum. ",
+          "createdAt": "2021-06-12T17:00:13Z",
+          "updatedAt": "2021-06-12T17:00:13Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgyMzM5MzM3",
+          "commit": {
+            "abbreviatedOid": "12f7c9a"
+          },
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-06-12T17:02:42Z",
+          "updatedAt": "2021-06-12T17:02:42Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgyMzQ5ODE3",
+          "commit": {
+            "abbreviatedOid": "12f7c9a"
+          },
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-06-12T19:44:07Z",
+          "updatedAt": "2021-06-12T19:44:07Z",
+          "comments": []
         }
       ]
     }
