@@ -5,12 +5,12 @@
 JSONPath WG                                           G. Normington, Ed.
 Internet-Draft                                                          
 Intended status: Standards Track                           E. Surov, Ed.
-Expires: 14 December 2021                        TheSoul Publishing Ltd.
+Expires: 16 December 2021                        TheSoul Publishing Ltd.
                                                        M. Mikulicic, Ed.
                                                         InfluxData, Inc.
                                                               S. Gössner
                                                  Fachhochschule Dortmund
-                                                            12 June 2021
+                                                            14 June 2021
 
 
                   JSONPath: Query expressions for JSON
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 December 2021.
+   This Internet-Draft will expire on 16 December 2021.
 
 Copyright Notice
 
@@ -134,7 +134,7 @@ Table of Contents
       true, false, numbers, and text strings.
 
    String:  A sequence of UTF-8 characters surrounded by either single
-      quotes (') or double quotes (").  Escaping quote characters is
+      quotes (`) or double quotes (").  Escaping quote characters is
       required only for the specific character which surrounds the
       string.  For example, a double quote character (") within a string
       surrounded by single quotes (') does not need to be escaped.
@@ -574,7 +574,6 @@ Syntax
    dot-child = "." dot-child-name / ; .<dot-child-name>
                "." "*"             ; .*
    dot-child-name = 1*(
-                      "-" /         ; -
                       DIGIT /
                       ALPHA /
                       "_" /         ; _
