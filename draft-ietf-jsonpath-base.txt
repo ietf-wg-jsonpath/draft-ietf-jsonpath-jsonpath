@@ -567,7 +567,6 @@ Syntax
    dot-child = "." dot-child-name / ; .<dot-child-name>
                "." "*"             ; .*
    dot-child-name = 1*(
-                      "-" /         ; -
                       DIGIT /
                       ALPHA /
                       "_" /         ; _
