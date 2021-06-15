@@ -589,7 +589,8 @@ Table of Contents
    *  Nested descendants selector "..".
 
    *  Union selector "[<sel1>,<sel2>,...,<selN>]", holding a comma
-      delimited list of selectors.
+      delimited list of index, index wild card, array slice, and filter
+      selectors.
 
    *  Filter selector "[?(<expr>)]"
 

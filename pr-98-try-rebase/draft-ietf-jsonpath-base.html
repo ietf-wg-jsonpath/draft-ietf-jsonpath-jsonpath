@@ -1629,8 +1629,8 @@ raised during application of the query to a value.<a href="#section-3.1-4" class
 <p id="section-3.1-5">(Obviously, an implementation can still fail when executing a JSONPath
 query, e.g., because of resource depletion, but this is not modeled in
 the present specification.)<a href="#section-3.1-5" class="pilcrow">¶</a></p>
-<ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="section-3.1-6.1">Discussion (D1): are we ready for the error model defined here, i.e. one
+<ul class="ulEmpty normal">
+<li class="ulEmpty normal" id="section-3.1-6.1">Discussion (D1): are we ready for the error model defined here, i.e. one
 that does not have runtime errors, but only compile time errors?<a href="#section-3.1-6.1" class="pilcrow">¶</a>
 </li>
         </ul>
@@ -1668,8 +1668,8 @@ nodelist, during such a function execution, such a node is referred to
 as the "current node".  Each of these function executions produces a
 nodelist, which are then combined by algorithm <em>combine1</em> into
 the result of the selector.<a href="#section-3.2-5" class="pilcrow">¶</a></p>
-<ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="section-3.2-6.1">Discussion (D2): We haven't decided yet whether there is only one
+<ul class="ulEmpty normal">
+<li class="ulEmpty normal" id="section-3.2-6.1">Discussion (D2): We haven't decided yet whether there is only one
 <em>combine1</em> or a choice, with for instance simple concatenation and
 concatenation with duplicate removal, based on a definition of
 duplicate, are candidates.<a href="#section-3.2-6.1" class="pilcrow">¶</a>
@@ -1722,15 +1722,15 @@ simply result in fewer nodes being selected.<a href="#section-3.4-2" class="pilc
 each of the nodes in its input nodelist and selects an output
 nodelist for each of them, as follows, which are then combined using
 the combine1 algorithm to form the result nodelist of the selector.<a href="#section-3.4-3" class="pilcrow">¶</a></p>
-<ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="section-3.4-4.1">Discussion (D3): Do we allow selectors that have their own combine1
+<ul class="ulEmpty normal">
+<li class="ulEmpty normal" id="section-3.4-4.1">Discussion (D3): Do we allow selectors that have their own combine1
 variant, or can we always use the same?<a href="#section-3.4-4.1" class="pilcrow">¶</a>
 </li>
         </ul>
 <p id="section-3.4-5">For each node in the list, the selector selects zero or more nodes,
 each of which is a descendant of the node or the node itself.<a href="#section-3.4-5" class="pilcrow">¶</a></p>
-<ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="section-3.4-6.1">Discussion (D4): Is that a common requirement?  Or can a selector also go
+<ul class="ulEmpty normal">
+<li class="ulEmpty normal" id="section-3.4-6.1">Discussion (D4): Is that a common requirement?  Or can a selector also go
 up, or to the query argument?<a href="#section-3.4-6.1" class="pilcrow">¶</a>
 </li>
         </ul>
@@ -1781,7 +1781,7 @@ of node.<a href="#section-3.4-14" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.5-2.7">Nested descendants selector <code>..</code>.<a href="#section-3.5-2.7" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-3.5-2.8">Union selector <code>[&lt;sel1&gt;,&lt;sel2&gt;,...,&lt;selN&gt;]</code>, holding a comma delimited list of selectors.<a href="#section-3.5-2.8" class="pilcrow">¶</a>
+          <li class="normal" id="section-3.5-2.8">Union selector <code>[&lt;sel1&gt;,&lt;sel2&gt;,...,&lt;selN&gt;]</code>, holding a comma delimited list of index, index wild card, array slice, and filter selectors.<a href="#section-3.5-2.8" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-3.5-2.9">Filter selector <code>[?(&lt;expr&gt;)]</code><a href="#section-3.5-2.9" class="pilcrow">¶</a>
 </li>
@@ -2336,8 +2336,8 @@ union-entry    =  ( quoted-member-name /
                   )
 </pre><a href="#section-3.5.8.1-2" class="pilcrow">¶</a>
 </div>
-<ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="section-3.5.8.1-3.1">Task (T1): This, besides slice-index, is currently one of only two
+<ul class="ulEmpty normal">
+<li class="ulEmpty normal" id="section-3.5.8.1-3.1">Task (T1): This, besides slice-index, is currently one of only two
 places in the document that mentions whitespace.  Whitespace needs
 to be handled throughout the ABNF syntax.  Room Consensus at the
 2021-06-15 interim was that JSONPath generally is generous with
@@ -2647,8 +2647,8 @@ So <code>"13 == '13'"</code> selects no node.<a href="#section-3.5.9.1-7.3" clas
       <h2 id="name-expression-language">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-expression-language" class="section-name selfRef">Expression Language</a>
       </h2>
-<ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="section-4-1.1">Task (T2): Separate out expression language.  For now, this section
+<ul class="ulEmpty normal">
+<li class="ulEmpty normal" id="section-4-1.1">Task (T2): Separate out expression language.  For now, this section
 is a repository for ABNF taken from <span>[<a href="#RFC8259" class="xref">RFC8259</a>]</span>.  This needs to be
 deduplicated with definitions above.<a href="#section-4-1.1" class="pilcrow">¶</a>
 </li>
