@@ -1032,12 +1032,12 @@ Semantics
       "true", "false", "null".  Comparisons with complex values will
       fail, i.e. no selection occurs.
 
-   *  Implicite type conversions during comparisons are not performed.
+   *  Implicit type conversions during comparisons are not performed.
       So ""13 == '13'"" selects nothing.
 
    *  A member or element value by itself is _falsy_ only, if it does
       not exist.  Otherwise it is _truthy_, resulting in its value.  To
-      be more specific explicite comparisons are necessary.  This
+      be more specific explicit comparisons are necessary.  This
       existence test - as an exception of the general rule - also works
       with complex values.
 
@@ -1045,8 +1045,8 @@ Semantics
 
    *  Containment tests work with arrays and objects.
 
-   *  Explicite boolean type conversion is done by the not operator
-      "neg-op".
+   *  Explicit boolean type conversion is done by the not operator "neg-
+      op".
 
    *  The behaviour of operators is consistent with the 'C'-family of
       programming languages.
