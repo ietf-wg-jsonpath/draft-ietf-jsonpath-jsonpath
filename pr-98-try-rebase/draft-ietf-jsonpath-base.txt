@@ -771,7 +771,7 @@ Semantics
    Array indexing via "element-index" is a way of selecting a particular
    array element using a zero-based index.  For example, selector "[0]"
    selects the first and selector "[4]" the fifth element of a
-   sufficiently filled array.
+   sufficiently long array.
 
    A negative "element-index" counts from the array end.  For example,
    selector "[-1]" selects the last and selector "[-2]" selects the last
