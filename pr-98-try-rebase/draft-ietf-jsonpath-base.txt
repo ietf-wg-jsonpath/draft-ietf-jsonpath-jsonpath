@@ -5,12 +5,12 @@
 JSONPath WG                                           G. Normington, Ed.
 Internet-Draft                                                          
 Intended status: Standards Track                           E. Surov, Ed.
-Expires: 16 December 2021                        TheSoul Publishing Ltd.
+Expires: 17 December 2021                        TheSoul Publishing Ltd.
                                                        M. Mikulicic, Ed.
                                                         InfluxData, Inc.
                                                               S. Gössner
                                                  Fachhochschule Dortmund
-                                                            14 June 2021
+                                                            15 June 2021
 
 
                   JSONPath: Query expressions for JSON
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 December 2021.
+   This Internet-Draft will expire on 17 December 2021.
 
 Copyright Notice
 
@@ -983,7 +983,7 @@ Semantics
 
 3.5.9.1.  Syntax
 
-   The filter selector has the shape "'[?<expr]'".  It works via
+   The filter selector has the shape "'[?<expr>]'".  It works via
    iterating over container values, i.e. arrays and objects.
 
    filter-selector    = "[?" boolean-expr "]"
@@ -1022,9 +1022,9 @@ Semantics
    Notes:
 
    *  Parenthesis can be used with "boolean-expr" for grouping.  So
-      filter selection syntax in the original proposal "'[?(<expr)]'" is
-      naturally contained in the current lean syntax "'[?<expr]'" as a
-      special case.
+      filter selection syntax in the original proposal "'[?(<expr>)]'"
+      is naturally contained in the current lean syntax "'[?<expr>]'" as
+      a special case.
 
    *  Comparisons are restricted to primitive values "number", "string",
       "true", "false", "null".  Comparisons with complex values will
