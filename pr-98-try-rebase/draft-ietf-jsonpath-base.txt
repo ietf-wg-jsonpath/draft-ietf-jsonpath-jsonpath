@@ -234,18 +234,18 @@ Table of Contents
    value is anonymous, JSONPath uses the abstract name "$" to refer to
    the root node of the argument.
 
-   JSONPath expressions can use the _dot-notation_
+   JSONPath expressions can use the _dot notation_
 
    $.store.book[0].title
 
-   or the _bracket-notation_
+   or the _bracket notation_
 
    $['store']['book'][0]['title']
 
    for paths input to a JSONPath processor. [1] Where a JSONPath
    processor uses JSONPath expressions as output paths, these will
    always be converted to Output Paths which employ the more general
-   _bracket-notation_. [2] Bracket notation is more general than dot
+   _bracket notation_. [2] Bracket notation is more general than dot
    notation and can serve as a canonical form when a JSONPath processor
    uses JSONPath expressions as output paths.
 
@@ -604,7 +604,7 @@ Syntax
 
 Semantics
 
-   The Argument -- the root JSON value - is anonymous by nature.  By
+   The Argument -- the root JSON value -- is anonymous by nature.  By
    getting assigned the universal name "'$'" it becomes the root node.
 
 3.5.2.  Dot Selector
@@ -785,8 +785,8 @@ Semantics
 Syntax
 
    The array slice selector has the form "'[<start>:<end>:<step>]'".  It
-   selects elements starting at index "<start>", ending at - not
-   including - "<end>", while incrementing by "step".
+   selects elements starting at index "<start>", ending at -- but not
+   including -- "<end>", while incrementing by "step".
 
    slice-selector = "[" slice-index "]"
 
@@ -991,9 +991,9 @@ Semantics
    filter-selector    = "[?" boolean-expr "]"
 
    During iteration process each array element or object member is
-   visited and its value - accessible via symbol "'@'" - or one of its
-   descendants - uniquely defined by a relative path - is tested against
-   a boolean expression "boolean-expr".
+   visited and its value -- accessible via symbol "'@'" -- or one of its
+   descendants -- uniquely defined by a relative path -- is tested
+   against a boolean expression "boolean-expr".
 
    If the result is "true", the current item, represented by "'@'", is
    selected.  In case of a "false" result, it is not.
@@ -1038,8 +1038,8 @@ Semantics
    *  A member or element value by itself is _falsy_ only, if it does
       not exist.  Otherwise it is _truthy_, resulting in its value.  To
       be more specific explicit comparisons are necessary.  This
-      existence test - as an exception of the general rule - also works
-      with complex values.
+      existence test -- as an exception of the general rule -- also
+      works with complex values.
 
    *  Regular expression tests can be applied to "string" values only.
 
@@ -1068,11 +1068,11 @@ Semantics
        | String |  "!"""   |  true  |    "false" for non-empty    |
        |        |  "!''"   |        |            string           |
        +--------+----------+--------+-----------------------------+
-       |  null  |  !null   |  true  |              -              |
+       |  null  |  !null   |  true  |              --             |
        +--------+----------+--------+-----------------------------+
-       |  true  |  !true   | false  |              -              |
+       |  true  |  !true   | false  |              --             |
        +--------+----------+--------+-----------------------------+
-       | false  |  !false  |  true  |              -              |
+       | false  |  !false  |  true  |              --             |
        +--------+----------+--------+-----------------------------+
        | Object |  "!{}"   | false  |        always "false"       |
        |        | "!{a:0}" |        |                             |
@@ -1159,7 +1159,7 @@ Semantics
 
    [E4X-overview]
               Adobe Systems Inc., The Mozilla Foundation, Opera Software
-              ASA, and others, "Proposed ECMAScript 4 Edition – Language
+              ASA, and others, "Proposed ECMAScript 4 Edition — Language
               Overview", 2007.
 
    [ECMA-262] Ecma International, "ECMAScript Language Specification,
@@ -1169,7 +1169,7 @@ Semantics
               262,%203rd%20edition,%20December%201999.pdf>.
 
    [JSONPath-orig]
-              Gössner, S., "JSONPath – XPath for JSON", 21 February
+              Gössner, S., "JSONPath — XPath for JSON", 21 February
               2007, <https://goessner.net/articles/JsonPath/>.
 
    [RFC3552]  Rescorla, E. and B. Korver, "Guidelines for Writing RFC
