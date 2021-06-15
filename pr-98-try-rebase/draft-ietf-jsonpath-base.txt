@@ -787,10 +787,10 @@ Syntax
 
 Semantics
 
-   An index selector combined with a single asterisk is a wild card.  It
-   selects all member values of an object as well as all elements of an
-   array.  Applying the "index-wild-selector" to a primitive JSON value
-   (such as a number, string, or true/false/null) selects no node.
+   An "index-wild-selector" selects all member values of an object as
+   well as all elements of an array.  Applying the "index-wild-selector"
+   to a primitive JSON value (such as a number, string, or true/false/
+   null) selects no node.
 
    The "index-wild-selector" behaves identically to the "dot-wild-
    selector".
