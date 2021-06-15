@@ -1021,7 +1021,7 @@ Semantics
 
    Notes:
 
-   *  Parenthesis can be used with "boolean-expr" for grouping.  So
+   *  Parentheses can be used with "boolean-expr" for grouping.  So
       filter selection syntax in the original proposal "'[?(<expr>)]'"
       is naturally contained in the current lean syntax "'[?<expr>]'" as
       a special case.
