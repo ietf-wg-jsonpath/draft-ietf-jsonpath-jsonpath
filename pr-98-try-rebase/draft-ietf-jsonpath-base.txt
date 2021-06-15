@@ -128,7 +128,7 @@ Table of Contents
    in ABNF as "%x2318".
 
    The terminology of [RFC8259] applies except where clarified below.
-   The terms "primitive" and "structured" are used to group the types as
+   The terms "Primitive" and "Structured" are used to group the types as
    in Section 1 of [RFC8259].  Definitions for "Object", "Array",
    "Number", and "String" remain unchanged.  Importantly "object" and
    "array" in particular do not take on a generic meaning, such as they
@@ -600,15 +600,14 @@ Table of Contents
 
 Syntax
 
-   Every valid JSONPath query MUST begin with the root selector named
-   "$".
+   Every valid JSONPath query MUST begin with the root selector "$".
 
    root-selector  = "$"
 
 Semantics
 
-   The Argument -- the root JSON value -- is anonymous by nature.  By
-   getting assigned the universal name "$" it becomes the root node.
+   The Argument -- the root JSON value -- becomes the root node, which
+   is addressed by the root selector "$".
 
 3.5.2.  Dot Selector
 
@@ -787,10 +786,10 @@ Syntax
 
 Semantics
 
-   An "index-wild-selector" selects all member values of an object as
-   well as all elements of an array.  Applying the "index-wild-selector"
-   to a primitive JSON value (such as a number, string, or true/false/
-   null) selects no node.
+   An "index-wild-selector" selects the nodes of all member values of an
+   object as well as of all elements of an array.  Applying the "index-
+   wild-selector" to a primitive JSON value (such as a number, string,
+   or true/false/null) selects no node.
 
    The "index-wild-selector" behaves identically to the "dot-wild-
    selector".
@@ -1254,6 +1253,14 @@ Contributors
 
    Phone: +49-421-218-63921
    Email: cabo@tzi.org
+
+
+   Marko Mikulicic
+   InfluxData, Inc.
+   Pisa
+   Italy
+
+   Email: mmikulicic@gmail.com
 
 
 Authors' Addresses
