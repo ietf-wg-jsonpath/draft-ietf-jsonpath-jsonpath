@@ -645,7 +645,7 @@ Semantics
 
 Syntax
 
-   The dot wild card selector has the shape "'.*'".
+   The dot wild card selector has the form "'.*'".
 
    dot-wild-selector    = "." "*"            ;  dot followed by asterisk
 
@@ -766,7 +766,7 @@ Semantics
 
 Syntax
 
-   The index wild card selector has the shape "'[*]'".
+   The index wild card selector has the form "'[*]'".
 
    index-wild-selector    = "[" "*" "]"  ;  asterisk enclosed by brackets
 
@@ -782,8 +782,8 @@ Semantics
 
 Syntax
 
-   The array slice selector has the shape "'[<start>:<end>:<step>]'".
-   It selects elements starting at index "<start>", ending at - not
+   The array slice selector has the form "'[<start>:<end>:<step>]'".  It
+   selects elements starting at index "<start>", ending at - not
    including - "<end>", while incrementing by "step".
 
    slice-selector = "[" slice-index "]"
@@ -983,7 +983,7 @@ Semantics
 
 3.5.9.1.  Syntax
 
-   The filter selector has the shape "'[?<expr>]'".  It works via
+   The filter selector has the form "'[?<expr>]'".  It works via
    iterating over container values, i.e. arrays and objects.
 
    filter-selector    = "[?" boolean-expr "]"
