@@ -569,49 +569,48 @@ Table of Contents
    A JSONPath query consists of a sequence of selectors.  Valid
    selectors are
 
-   *  Root selector "'$'"
+   *  Root selector "$"
 
-   *  Dot selector "'.<name>'", used with object member names
-      exclusively.
+   *  Dot selector ".<name>", used with object member names exclusively.
 
-   *  Dot wild card selector "'.*'".
+   *  Dot wild card selector ".*".
 
-   *  Index selector "'[<index>]'", where "<index>" is either an
-      (possibly negative) array index or an object member name.
+   *  Index selector "[<index>]", where "<index>" is either an (possibly
+      negative) array index or an object member name.
 
-   *  Index wild card selector "'[*]'".
+   *  Index wild card selector "[*]".
 
-   *  Array slice selector "'[<start>:<end>:<step>]'", where "<start>",
+   *  Array slice selector "[<start>:<end>:<step>]", where "<start>",
       "<end>", "<step>" are integer literals.
 
-   *  Nested descendants selector "'..'".
+   *  Nested descendants selector "..".
 
-   *  Union selector "'[<sel1>,<sel2>,...,<selN>]'", holding a comma
+   *  Union selector "[<sel1>,<sel2>,...,<selN>]", holding a comma
       delimited list of selectors.
 
    *  Filter selector "[?(<expr>)]"
 
-   *  Current item selector "'@'"
+   *  Current item selector "@"
 
 3.5.1.  Root Selector
 
 Syntax
 
    Every valid JSONPath query MUST begin with the root selector named
-   "'$'".
+   "$".
 
    root-selector  = "$"
 
 Semantics
 
    The Argument -- the root JSON value -- is anonymous by nature.  By
-   getting assigned the universal name "'$'" it becomes the root node.
+   getting assigned the universal name "$" it becomes the root node.
 
 3.5.2.  Dot Selector
 
 Syntax
 
-   A dot selector starts with a dot "'.'" followed by an object's member
+   A dot selector starts with a dot "." followed by an object's member
    name.
 
    dot-selector    = "." dot-member-name
@@ -625,9 +624,9 @@ Syntax
    ALPHA           =  %x41-5A / %x61-7A    ; A-Z / a-z
 
    Member names containing other characters than allowed by "dot-
-   selector" -- such as space "' '" and minus "'-'" characters -- MUST
-   NOT be used with the "dot-selector".  (Such member names can be
-   addressed by the "index-selector" instead.)
+   selector" -- such as space ` ` and minus "-" characters -- MUST NOT
+   be used with the "dot-selector".  (Such member names can be addressed
+   by the "index-selector" instead.)
 
 Semantics
 
@@ -645,7 +644,7 @@ Semantics
 
 Syntax
 
-   The dot wild card selector has the form "'.*'".
+   The dot wild card selector has the form ".*".
 
    dot-wild-selector    = "." "*"            ;  dot followed by asterisk
 
@@ -660,8 +659,8 @@ Semantics
 
 Syntax
 
-   An index selector "'[<index>]'" addresses a single object member
-   value or a single array element value.
+   An index selector "[<index>]" addresses a single object member value
+   or a single array element value.
 
    index-selector      = "[" (quoted-member-name / element-index) "]"
 
@@ -766,7 +765,7 @@ Semantics
 
 Syntax
 
-   The index wild card selector has the form "'[*]'".
+   The index wild card selector has the form "[*]".
 
    index-wild-selector    = "[" "*" "]"  ;  asterisk enclosed by brackets
 
@@ -784,7 +783,7 @@ Semantics
 
 Syntax
 
-   The array slice selector has the form "'[<start>:<end>:<step>]'".  It
+   The array slice selector has the form "[<start>:<end>:<step>]".  It
    selects elements starting at index "<start>", ending at -- but not
    including -- "<end>", while incrementing by "step".
 
@@ -942,7 +941,7 @@ Detailed Semantics
 
 Syntax
 
-   The descendant selector starts with a double dot "'..'" and can be
+   The descendant selector starts with a double dot ".." and can be
    followed by an object member name (similar to the "dot-selector"), by
    an "index-selector" acting on objects or arrays, or by a wild card.
 
@@ -984,13 +983,13 @@ Semantics
 
 3.5.9.1.  Syntax
 
-   The filter selector has the form "'[?<expr>]'".  It works via
-   iterating over container values, i.e. arrays and objects.
+   The filter selector has the form "[?<expr>]".  It works via iterating
+   over container values, i.e. arrays and objects.
 
    filter-selector    = "[?" boolean-expr "]"
 
    During iteration process each array element or object member is
-   visited and its value -- accessible via symbol "'@'" -- or one of its
+   visited and its value -- accessible via symbol "@" -- or one of its
    descendants -- uniquely defined by a relative path -- is tested
    against a boolean expression "boolean-expr".
 
@@ -1022,9 +1021,9 @@ Semantics
    Notes:
 
    *  Parentheses can be used with "boolean-expr" for grouping.  So
-      filter selection syntax in the original proposal "'[?(<expr>)]'"
-      is naturally contained in the current lean syntax "'[?<expr>]'" as
-      a special case.
+      filter selection syntax in the original proposal "[?(<expr>)]" is
+      naturally contained in the current lean syntax "[?<expr>]" as a
+      special case.
 
    *  Comparisons are restricted to primitive values "number", "string",
       "true", "false", "null".  Comparisons with complex values will
@@ -1081,7 +1080,7 @@ Semantics
 
                   Table 5: Test falsiness of JSON values
 
-   Applying negation operator twice "'!!'" gives us _truthiness_ of
+   Applying negation operator twice "!!" gives us _truthiness_ of
    values.
 
    Some examples:
