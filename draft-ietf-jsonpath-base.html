@@ -7,7 +7,6 @@
 <title>JSONPath: Query expressions for JSON</title>
 <meta content="Glyn Normington" name="author">
 <meta content="Edward Surov" name="author">
-<meta content="Marko Mikulicic" name="author">
 <meta content="Stefan Gössner" name="author">
 <meta content="
        JSONPath defines a string syntax for identifying values
@@ -845,7 +844,7 @@ address div.right {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Normington, et al.</td>
-<td class="center">Expires 16 December 2021</td>
+<td class="center">Expires 18 December 2021</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -858,12 +857,12 @@ address div.right {
 <dd class="internet-draft">draft-ietf-jsonpath-base-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-06-14" class="published">14 June 2021</time>
+<time datetime="2021-06-16" class="published">16 June 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2021-12-16">16 December 2021</time></dd>
+<dd class="expires"><time datetime="2021-12-18">18 December 2021</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -874,11 +873,6 @@ address div.right {
       <div class="author-name">E. Surov, <span class="editor">Ed.</span>
 </div>
 <div class="org">TheSoul Publishing Ltd.</div>
-</div>
-<div class="author">
-      <div class="author-name">M. Mikulicic, <span class="editor">Ed.</span>
-</div>
-<div class="org">InfluxData, Inc.</div>
 </div>
 <div class="author">
       <div class="author-name">S. Gössner</div>
@@ -923,7 +917,7 @@ be covered.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 16 December 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 18 December 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -988,22 +982,45 @@ be covered.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
                 <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="xref">3.5</a>.  <a href="#name-selectors" class="xref">Selectors</a></p>
 <ul class="ulEmpty compact toc">
 <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.1">
-                    <p id="section-toc.1-1.3.2.5.2.1.1"><a href="#section-3.5.1" class="xref">3.5.1</a>.  <a href="#name-dot-child-selector" class="xref">Dot Child Selector</a></p>
+                    <p id="section-toc.1-1.3.2.5.2.1.1"><a href="#section-3.5.1" class="xref">3.5.1</a>.  <a href="#name-root-selector" class="xref">Root Selector</a></p>
 </li>
                   <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.2">
-                    <p id="section-toc.1-1.3.2.5.2.2.1"><a href="#section-3.5.2" class="xref">3.5.2</a>.  <a href="#name-union-selector" class="xref">Union Selector</a></p>
+                    <p id="section-toc.1-1.3.2.5.2.2.1"><a href="#section-3.5.2" class="xref">3.5.2</a>.  <a href="#name-dot-selector" class="xref">Dot Selector</a></p>
+</li>
+                  <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.3">
+                    <p id="section-toc.1-1.3.2.5.2.3.1"><a href="#section-3.5.3" class="xref">3.5.3</a>.  <a href="#name-dot-wild-card-selector" class="xref">Dot Wild Card Selector</a></p>
+</li>
+                  <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.4">
+                    <p id="section-toc.1-1.3.2.5.2.4.1"><a href="#section-3.5.4" class="xref">3.5.4</a>.  <a href="#name-index-selector" class="xref">Index Selector</a></p>
+</li>
+                  <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.5">
+                    <p id="section-toc.1-1.3.2.5.2.5.1"><a href="#section-3.5.5" class="xref">3.5.5</a>.  <a href="#name-index-wild-card-selector" class="xref">Index Wild Card Selector</a></p>
+</li>
+                  <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.6">
+                    <p id="section-toc.1-1.3.2.5.2.6.1"><a href="#section-3.5.6" class="xref">3.5.6</a>.  <a href="#name-array-slice-selector" class="xref">Array Slice Selector</a></p>
+</li>
+                  <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.7">
+                    <p id="section-toc.1-1.3.2.5.2.7.1"><a href="#section-3.5.7" class="xref">3.5.7</a>.  <a href="#name-descendant-selector" class="xref">Descendant Selector</a></p>
+</li>
+                  <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.8">
+                    <p id="section-toc.1-1.3.2.5.2.8.1"><a href="#section-3.5.8" class="xref">3.5.8</a>.  <a href="#name-union-selector" class="xref">Union Selector</a></p>
 <ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.2.2.1">
-                        <p id="section-toc.1-1.3.2.5.2.2.2.1.1"><a href="#section-3.5.2.1" class="xref">3.5.2.1</a>.  <a href="#name-syntax-3" class="xref">Syntax</a></p>
+<li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.8.2.1">
+                        <p id="section-toc.1-1.3.2.5.2.8.2.1.1"><a href="#section-3.5.8.1" class="xref">3.5.8.1</a>.  <a href="#name-syntax-9" class="xref">Syntax</a></p>
 </li>
-                      <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.2.2.2">
-                        <p id="section-toc.1-1.3.2.5.2.2.2.2.1"><a href="#section-3.5.2.2" class="xref">3.5.2.2</a>.  <a href="#name-semantics-3" class="xref">Semantics</a></p>
+                      <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.8.2.2">
+                        <p id="section-toc.1-1.3.2.5.2.8.2.2.1"><a href="#section-3.5.8.2" class="xref">3.5.8.2</a>.  <a href="#name-semantics-9" class="xref">Semantics</a></p>
 </li>
-                      <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.2.2.3">
-                        <p id="section-toc.1-1.3.2.5.2.2.2.3.1"><a href="#section-3.5.2.3" class="xref">3.5.2.3</a>.  <a href="#name-child" class="xref">Child</a></p>
+                    </ul>
 </li>
-                      <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.2.2.4">
-                        <p id="section-toc.1-1.3.2.5.2.2.2.4.1"><a href="#section-3.5.2.4" class="xref">3.5.2.4</a>.  <a href="#name-array-selector" class="xref">Array Selector</a></p>
+                  <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.9">
+                    <p id="section-toc.1-1.3.2.5.2.9.1"><a href="#section-3.5.9" class="xref">3.5.9</a>.  <a href="#name-filter-selector" class="xref">Filter Selector</a></p>
+<ul class="ulEmpty compact toc">
+<li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.9.2.1">
+                        <p id="section-toc.1-1.3.2.5.2.9.2.1.1"><a href="#section-3.5.9.1" class="xref">3.5.9.1</a>.  <a href="#name-syntax-10" class="xref">Syntax</a></p>
+</li>
+                      <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.5.2.9.2.2">
+                        <p id="section-toc.1-1.3.2.5.2.9.2.2.1"><a href="#section-3.5.9.2" class="xref">3.5.9.2</a>.  <a href="#name-semantics-10" class="xref">Semantics</a></p>
 </li>
                     </ul>
 </li>
@@ -1012,30 +1029,33 @@ be covered.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
             </ul>
 </li>
           <li class="ulEmpty compact toc" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-expression-language" class="xref">Expression Language</a></p>
 </li>
           <li class="ulEmpty compact toc" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
 </li>
           <li class="ulEmpty compact toc" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-references" class="xref">References</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a></p>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-references" class="xref">References</a></p>
+<ul class="ulEmpty compact toc">
+<li class="ulEmpty compact toc" id="section-toc.1-1.7.2.1">
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
+</li>
+              <li class="ulEmpty compact toc" id="section-toc.1-1.7.2.2">
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-appendix.a" class="xref"></a><a href="#name-acknowledgements" class="xref">Acknowledgements</a></p>
-</li>
           <li class="ulEmpty compact toc" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-appendix.b" class="xref"></a><a href="#name-contributors" class="xref">Contributors</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-appendix.a" class="xref"></a><a href="#name-acknowledgements" class="xref">Acknowledgements</a></p>
 </li>
           <li class="ulEmpty compact toc" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-appendix.c" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#section-appendix.b" class="xref"></a><a href="#name-contributors" class="xref">Contributors</a></p>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#section-appendix.c" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1073,7 +1093,10 @@ their UTF-8 encoding.
 For example, the Unicode PLACE OF INTEREST SIGN (U+2318) would be defined
 in ABNF as <code>%x2318</code>.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
 <p id="section-1.1-3">The terminology of <span>[<a href="#RFC8259" class="xref">RFC8259</a>]</span> applies except where clarified below.
-Definitions for "Object", "Array", and "Number" remain unchanged.
+The terms "Primitive" and "Structured" are used to group
+the types as in <span><a href="https://rfc-editor.org/rfc/rfc8259#section-1" class="relref">Section 1</a> of [<a href="#RFC8259" class="xref">RFC8259</a>]</span>.
+Definitions for "Object", "Array", "Number", and "String" remain
+unchanged.
 Importantly "object" and "array" in particular do not take on a
 generic meaning, such as they would in a general programming context.<a href="#section-1.1-3" class="pilcrow">¶</a></p>
 <p id="section-1.1-4">Additional terms used in this specification are defined below.<a href="#section-1.1-4" class="pilcrow">¶</a></p>
@@ -1233,13 +1256,13 @@ in.<a href="#section-1.2-11" class="pilcrow">¶</a></p>
 as XPath expressions are used in combination with an XML document.
 Since a value is anonymous, JSONPath uses the abstract name <code>$</code> to
 refer to the root node of the argument.<a href="#section-1.3-1" class="pilcrow">¶</a></p>
-<p id="section-1.3-2">JSONPath expressions can use the <em>dot-notation</em><a href="#section-1.3-2" class="pilcrow">¶</a></p>
+<p id="section-1.3-2">JSONPath expressions can use the <em>dot notation</em><a href="#section-1.3-2" class="pilcrow">¶</a></p>
 <div class="artwork art-text alignLeft" id="section-1.3-3">
 <pre>
 $.store.book[0].title
 </pre><a href="#section-1.3-3" class="pilcrow">¶</a>
 </div>
-<p id="section-1.3-4">or the <em>bracket-notation</em><a href="#section-1.3-4" class="pilcrow">¶</a></p>
+<p id="section-1.3-4">or the <em>bracket notation</em><a href="#section-1.3-4" class="pilcrow">¶</a></p>
 <div class="artwork art-text alignLeft" id="section-1.3-5">
 <pre>
 $['store']['book'][0]['title']
@@ -1249,7 +1272,7 @@ $['store']['book'][0]['title']
 [1]
 Where a JSONPath processor uses JSONPath expressions as output paths,
 these will always be converted to Output Paths
-which employ the more general <em>bracket-notation</em>.
+which employ the more general <em>bracket notation</em>.
 [2]
 Bracket notation is more general than dot notation and can serve as a
 canonical form when a JSONPath processor uses JSONPath expressions as
@@ -1668,8 +1691,14 @@ stands for a nodelist that contains the root node of the argument,
 followed by a possibly empty sequence of <em>selectors</em>.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 <div id="section-3.3-2">
 <pre class="sourcecode lang-abnf">
-json-path = root-selector *selector
-root-selector = "$"               ; $ selects document root node
+json-path = root-selector *(dot-selector        /
+                            dot-wild-selector   /
+                            index-selector      /
+                            index-wild-selector /
+                            union-selector      /
+                            slice-selector      /
+                            descendant-selector /
+                            filter-selector)
 </pre><a href="#section-3.3-2" class="pilcrow">¶</a>
 </div>
 <p id="section-3.3-3">The syntax and semantics of each selector is defined below.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
@@ -1712,14 +1741,16 @@ Let's walk through this in detail.<a href="#section-3.4-7" class="pilcrow">¶</a
 <p id="section-3.4-8">The query consists of <code>$</code> followed by three selectors: <code>.a</code>, <code>[*]</code>, and <code>.b</code>.<a href="#section-3.4-8" class="pilcrow">¶</a></p>
 <p id="section-3.4-9">Firstly, <code>$</code> selects the root node which is the argument.
 So the result is a list consisting of just the root node.<a href="#section-3.4-9" class="pilcrow">¶</a></p>
-<p id="section-3.4-10">Next, <code>.a</code> selects from any input node of type object and selects any value of the input
+<p id="section-3.4-10">Next, <code>.a</code> selects from any input node of type object and selects the
+node of any
+member value of the input
 node corresponding to the member name <code>"a"</code>.
 The result is again a list of one node: <code>[{"b":0},{"b":1},{"c":2}]</code>.<a href="#section-3.4-10" class="pilcrow">¶</a></p>
 <p id="section-3.4-11">Next, <code>[*]</code> selects from any input node which is an array and selects all the elements
 of the input node.
 The result is a list of three nodes: <code>{"b":0}</code>, <code>{"b":1}</code>, and <code>{"c":2}</code>.<a href="#section-3.4-11" class="pilcrow">¶</a></p>
 <p id="section-3.4-12">Finally, <code>.b</code> selects from any input node of type object with a member name
-<code>b</code> and selects the value of the input node corresponding to that name.
+<code>b</code> and selects the node of the member value of the input node corresponding to that name.
 The result is a list containing <code>0</code>, <code>1</code>.
 This is the concatenation of three lists, two of length one containing
 <code>0</code>, <code>1</code>, respectively, and one of length zero.<a href="#section-3.4-12" class="pilcrow">¶</a></p>
@@ -1734,41 +1765,45 @@ of node.<a href="#section-3.4-14" class="pilcrow">¶</a></p>
         <h3 id="name-selectors">
 <a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-selectors" class="section-name selfRef">Selectors</a>
         </h3>
-<div id="dot-child-selector">
+<p id="section-3.5-1">A JSONPath query consists of a sequence of selectors. Valid selectors are<a href="#section-3.5-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.5-2.1">Root selector <code>$</code><a href="#section-3.5-2.1" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-3.5-2.2">Dot selector <code>.&lt;name&gt;</code>, used with object member names exclusively.<a href="#section-3.5-2.2" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-3.5-2.3">Dot wild card selector <code>.*</code>.<a href="#section-3.5-2.3" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-3.5-2.4">Index selector <code>[&lt;index&gt;]</code>, where <code>&lt;index&gt;</code> is either an (possibly negative) array index or an object member name.<a href="#section-3.5-2.4" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-3.5-2.5">Index wild card selector <code>[*]</code>.<a href="#section-3.5-2.5" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-3.5-2.6">Array slice selector <code>[&lt;start&gt;:&lt;end&gt;:&lt;step&gt;]</code>, where <code>&lt;start&gt;</code>, <code>&lt;end&gt;</code>, <code>&lt;step&gt;</code> are integer literals.<a href="#section-3.5-2.6" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-3.5-2.7">Nested descendants selector <code>..</code>.<a href="#section-3.5-2.7" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-3.5-2.8">Union selector <code>[&lt;sel1&gt;,&lt;sel2&gt;,...,&lt;selN&gt;]</code>, holding a comma delimited list of index, index wild card, array slice, and filter selectors.<a href="#section-3.5-2.8" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-3.5-2.9">Filter selector <code>[?(&lt;expr&gt;)]</code><a href="#section-3.5-2.9" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-3.5-2.10">Current item selector <code>@</code><a href="#section-3.5-2.10" class="pilcrow">¶</a>
+</li>
+        </ul>
+<div id="root-selector">
 <section id="section-3.5.1">
-          <h4 id="name-dot-child-selector">
-<a href="#section-3.5.1" class="section-number selfRef">3.5.1. </a><a href="#name-dot-child-selector" class="section-name selfRef">Dot Child Selector</a>
+          <h4 id="name-root-selector">
+<a href="#section-3.5.1" class="section-number selfRef">3.5.1. </a><a href="#name-root-selector" class="section-name selfRef">Root Selector</a>
           </h4>
 <div id="syntax-1">
 <section id="section-3.5.1.1">
             <h5 id="name-syntax-2">
 <a href="#name-syntax-2" class="section-name selfRef">Syntax</a>
             </h5>
-<p id="section-3.5.1.1-1">A dot child selector has a member name known as a dot child name or a single asterisk
-(<code>*</code>).<a href="#section-3.5.1.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.5.1.1-2">A dot child name corresponds to a name in a object.<a href="#section-3.5.1.1-2" class="pilcrow">¶</a></p>
-<div id="section-3.5.1.1-3">
+<p id="section-3.5.1.1-1">Every valid JSONPath query MUST begin with the root selector <code>$</code>.<a href="#section-3.5.1.1-1" class="pilcrow">¶</a></p>
+<div id="section-3.5.1.1-2">
 <pre class="sourcecode lang-abnf">
-selector = dot-child              ; see below for alternatives
-dot-child = "." dot-child-name / ; .&lt;dot-child-name&gt;
-            "." "*"             ; .*
-dot-child-name = 1*(
-                   DIGIT /
-                   ALPHA /
-                   "_" /         ; _
-                   %x80-10FFFF    ; any non-ASCII Unicode character
-                 )
-DIGIT =  %x30-39                  ; 0-9
-ALPHA = %x41-5A / %x61-7A         ; A-Z / a-z
-</pre><a href="#section-3.5.1.1-3" class="pilcrow">¶</a>
+root-selector  = "$"
+</pre><a href="#section-3.5.1.1-2" class="pilcrow">¶</a>
 </div>
-<p id="section-3.5.1.1-4">More general child names, such as the empty string, are supported by "Union
-Child" (<a href="#unionchild" class="xref">Section 3.5.2.3</a>).<a href="#section-3.5.1.1-4" class="pilcrow">¶</a></p>
-<p id="section-3.5.1.1-5">Note that the <code>dot-child-name</code> rule follows the philosophy of JSON strings and is
-allowed to contain bit sequences that cannot encode Unicode characters (a
-single unpaired UTF-16 surrogate, for example).
-The behaviour of an implementation is undefined for child names which do
-not encode Unicode characters.<a href="#section-3.5.1.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="semantics-1">
@@ -1776,308 +1811,403 @@ not encode Unicode characters.<a href="#section-3.5.1.1-5" class="pilcrow">¶</a
             <h5 id="name-semantics-2">
 <a href="#name-semantics-2" class="section-name selfRef">Semantics</a>
             </h5>
-<p id="section-3.5.1.2-1">A dot child name which is not a single asterisk (<code>*</code>) is considered to
-have a member name.
-It selects the value corresponding to the name from any object node.
-It selects
-no nodes from a node which is not a object.<a href="#section-3.5.1.2-1" class="pilcrow">¶</a></p>
-<p id="section-3.5.1.2-2">The member name of a dot child name is the sequence of Unicode characters contained
-in that name.<a href="#section-3.5.1.2-2" class="pilcrow">¶</a></p>
-<p id="section-3.5.1.2-3">A dot child name consisting of a single asterisk is a wild card. It selects
-all the values of any object node.
-It also selects all the elements of any array node.
-It selects no nodes from
-number, string, or literal nodes.<a href="#section-3.5.1.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.5.1.2-1">The Argument -- the root JSON value -- becomes the root node, which is
+addressed by the root selector <code>$</code>.<a href="#section-3.5.1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
-<div id="union-selector">
+<div id="dot-selector">
 <section id="section-3.5.2">
-          <h4 id="name-union-selector">
-<a href="#section-3.5.2" class="section-number selfRef">3.5.2. </a><a href="#name-union-selector" class="section-name selfRef">Union Selector</a>
+          <h4 id="name-dot-selector">
+<a href="#section-3.5.2" class="section-number selfRef">3.5.2. </a><a href="#name-dot-selector" class="section-name selfRef">Dot Selector</a>
           </h4>
 <div id="syntax-2">
 <section id="section-3.5.2.1">
             <h5 id="name-syntax-3">
-<a href="#section-3.5.2.1" class="section-number selfRef">3.5.2.1. </a><a href="#name-syntax-3" class="section-name selfRef">Syntax</a>
+<a href="#name-syntax-3" class="section-name selfRef">Syntax</a>
             </h5>
-<p id="section-3.5.2.1-1">A union selector consists of one or more union elements.<a href="#section-3.5.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.2.1-1">A dot selector starts with a dot <code>.</code> followed by an object's member name.<a href="#section-3.5.2.1-1" class="pilcrow">¶</a></p>
 <div id="section-3.5.2.1-2">
 <pre class="sourcecode lang-abnf">
-selector =/ union
-union = "[" ws union-elements ws "]" ; [...]
-ws = *" "                             ; zero or more spaces
-union-elements = union-element /
-                 union-element ws "," ws union-elements
-                                       ; ,-separated list
+dot-selector    = "." dot-member-name
+dot-member-name = name-first *name-char
+name-first =
+                      ALPHA /
+                      "_"   /           ; _
+                      %x80-10FFFF       ; any non-ASCII Unicode character
+name-char = DIGIT / name-first
+
+DIGIT           =  %x30-39              ; 0-9
+ALPHA           =  %x41-5A / %x61-7A    ; A-Z / a-z
 </pre><a href="#section-3.5.2.1-2" class="pilcrow">¶</a>
 </div>
+<p id="section-3.5.2.1-3">Member names containing other characters than allowed by
+<code>dot-selector</code> -- such as space ` ` and minus <code>-</code>
+characters -- MUST NOT be used with the <code>dot-selector</code>.
+(Such member names can be addressed by the
+<code>index-selector</code> instead.)<a href="#section-3.5.2.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="semantics-2">
 <section id="section-3.5.2.2">
             <h5 id="name-semantics-3">
-<a href="#section-3.5.2.2" class="section-number selfRef">3.5.2.2. </a><a href="#name-semantics-3" class="section-name selfRef">Semantics</a>
+<a href="#name-semantics-3" class="section-name selfRef">Semantics</a>
             </h5>
-<p id="section-3.5.2.2-1">A union selects any node which is selected by at least one of the union selectors
-and selects the concatenation of the
-lists (in the order of the selectors) of nodes selected by the union elements.<a href="#section-3.5.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.2.2-1">The <code>dot-selector</code> selects the node of the member value corresponding to the member name from any JSON object. It selects no nodes from any other JSON value.<a href="#section-3.5.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.2.2-2">Note that the <code>dot-selector</code> follows the philosophy of JSON strings and is
+allowed to contain bit sequences that cannot encode Unicode characters (a
+single unpaired UTF-16 surrogate, for example).
+The behaviour of an implementation is undefined for member names which do
+not encode Unicode characters.<a href="#section-3.5.2.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="unionchild">
-<section id="section-3.5.2.3">
-            <h5 id="name-child">
-<a href="#section-3.5.2.3" class="section-number selfRef">3.5.2.3. </a><a href="#name-child" class="section-name selfRef">Child</a>
-            </h5>
-<div id="syntax-3">
-<section id="section-3.5.2.3.1">
-              <h6 id="name-syntax-4">
-<a href="#name-syntax-4" class="section-name selfRef">Syntax</a>
-              </h6>
-<p id="section-3.5.2.3.1-1">A child is a quoted string.<a href="#section-3.5.2.3.1-1" class="pilcrow">¶</a></p>
-<div id="section-3.5.2.3.1-2">
-<pre class="sourcecode lang-abnf">
-union-element = child ; see below for more alternatives
-child = %x22 *double-quoted %x22 / ; "string"
-        "'" *single-quoted "'"   ; 'string'
-
-double-quoted = dq-unescaped /
-          escape (
-              %x22 /         ; "    quotation mark  U+0022
-              "/" /          ; /    solidus         U+002F
-              "\" /          ; \    reverse solidus U+005C
-              "b" /          ; b    backspace       U+0008
-              "f" /          ; f    form feed       U+000C
-              "n" /          ; n    line feed       U+000A
-              "r" /          ; r    carriage return U+000D
-              "t" /          ; t    tab             U+0009
-              "u" 4HEXDIG )  ; uXXXX                U+XXXX
-
-
-dq-unescaped = %x20-21 / %x23-5B / %x5D-10FFFF
-
-single-quoted = sq-unescaped /
-          escape (
-              "'" /          ; '    apostrophe      U+0027
-              "/" /          ; /    solidus         U+002F
-              "\" /          ; \    reverse solidus U+005C
-              "b" /          ; b    backspace       U+0008
-              "f" /          ; f    form feed       U+000C
-              "n" /          ; n    line feed       U+000A
-              "r" /          ; r    carriage return U+000D
-              "t" /          ; t    tab             U+0009
-              "u" 4HEXDIG )  ; uXXXX                U+XXXX
-
-sq-unescaped = %x20-26 / %x28-5B / %x5D-10FFFF
-
-escape = "\"                 ; \
-
-HEXDIG =  DIGIT / "A" / "B" / "C" / "D" / "E" / "F"
-                              ; case insensitive hex digit
-</pre><a href="#section-3.5.2.3.1-2" class="pilcrow">¶</a>
+</section>
 </div>
-<p id="section-3.5.2.3.1-3">Notes:
-1. double-quoted strings follow JSON in <span>[<a href="#RFC8259" class="xref">RFC8259</a>]</span>.
-   Single-quoted strings follow an analogous pattern.
-2. <code>HEXDIG</code> includes A-F and a-f.<a href="#section-3.5.2.3.1-3" class="pilcrow">¶</a></p>
+<div id="dot-wild-card-selector">
+<section id="section-3.5.3">
+          <h4 id="name-dot-wild-card-selector">
+<a href="#section-3.5.3" class="section-number selfRef">3.5.3. </a><a href="#name-dot-wild-card-selector" class="section-name selfRef">Dot Wild Card Selector</a>
+          </h4>
+<div id="syntax-3">
+<section id="section-3.5.3.1">
+            <h5 id="name-syntax-4">
+<a href="#name-syntax-4" class="section-name selfRef">Syntax</a>
+            </h5>
+<p id="section-3.5.3.1-1">The dot wild card selector has the form <code>.*</code>.<a href="#section-3.5.3.1-1" class="pilcrow">¶</a></p>
+<div id="section-3.5.3.1-2">
+<pre class="sourcecode lang-abnf">
+dot-wild-selector    = "." "*"            ;  dot followed by asterisk
+</pre><a href="#section-3.5.3.1-2" class="pilcrow">¶</a>
+</div>
 </section>
 </div>
 <div id="semantics-3">
-<section id="section-3.5.2.3.2">
-              <h6 id="name-semantics-4">
+<section id="section-3.5.3.2">
+            <h5 id="name-semantics-4">
 <a href="#name-semantics-4" class="section-name selfRef">Semantics</a>
-              </h6>
-<p id="section-3.5.2.3.2-1">If the child is a quoted string, the string MUST be converted to a
+            </h5>
+<p id="section-3.5.3.2-1">A <code>dot-wild-selector</code> acts as a wild card by selecting the nodes of all member values of an object as well as all element nodes of
+an array.
+Applying the <code>dot-wild-selector</code> to a primitive JSON value (number,
+string, or true/false/null) selects no node.<a href="#section-3.5.3.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="index-selector">
+<section id="section-3.5.4">
+          <h4 id="name-index-selector">
+<a href="#section-3.5.4" class="section-number selfRef">3.5.4. </a><a href="#name-index-selector" class="section-name selfRef">Index Selector</a>
+          </h4>
+<div id="syntax-4">
+<section id="section-3.5.4.1">
+            <h5 id="name-syntax-5">
+<a href="#name-syntax-5" class="section-name selfRef">Syntax</a>
+            </h5>
+<p id="section-3.5.4.1-1">An index selector <code>[&lt;index&gt;]</code> addresses at most one object member value or at most one array element value.<a href="#section-3.5.4.1-1" class="pilcrow">¶</a></p>
+<div id="section-3.5.4.1-2">
+<pre class="sourcecode lang-abnf">
+index-selector      = "[" (quoted-member-name / element-index) "]"
+</pre><a href="#section-3.5.4.1-2" class="pilcrow">¶</a>
+</div>
+<p id="section-3.5.4.1-3">Applying the <code>index-selector</code> to an object value, a <code>quoted-member-name</code> string is required. JSONPath allows it to be enclosed in <em>single</em> or <em>double</em> quotes.<a href="#section-3.5.4.1-3" class="pilcrow">¶</a></p>
+<div id="section-3.5.4.1-4">
+<pre class="sourcecode lang-abnf">
+quoted-member-name  = string-literal
+
+string-literal      = %x22 *double-quoted %x22 /       ; "string"
+                      %x27 *single-quoted %x27         ; 'string'
+
+double-quoted       = unescaped /
+                      %x27      /                       ; '
+                      ESC %x22  /                       ; \"
+                      ESC escapable
+
+single-quoted       = unescaped /
+                      %x22      /                       ; "
+                      ESC %x27  /                       ; \'
+                      ESC escapable
+
+ESC                 = %x5C                              ; \  backslash
+
+unescaped           = %x20-21 /                         ; s. RFC 8259
+                      %x23-26 /                         ; omit "
+                      %x28-5B /                         ; omit '
+                      %x5D-10FFFF                       ; omit \
+
+escapable           = ( %x62 / %x66 / %x6E / %x72 / %x74 / ; \b \f \n \r \t
+                          ; b /         ;  BS backspace U+0008
+                          ; t /         ;  HT horizontal tab U+0009
+                          ; n /         ;  LF line feed U+000A
+                          ; f /         ;  FF form feed U+000C
+                          ; r /         ;  CR carriage return U+000D
+                          "/" /          ;  /  slash (solidus)
+                          "\" /          ;  \  backslash (reverse solidus)
+                          (%x75 hexchar) ;  uXXXX      U+XXXX
+                      )
+
+hexchar = non-surrogate / (high-surrogate "\" %x75 low-surrogate)
+non-surrogate = ((DIGIT / "A"/"B"/"C" / "E"/"F") 3HEXDIG) /
+                 ("D" %x30-37 2HEXDIG )
+high-surrogate = "D" ("8"/"9"/"A"/"B") 2HEXDIG
+low-surrogate = "D" ("C"/"D"/"E"/"F") 2HEXDIG
+
+HEXDIG = DIGIT / "A" / "B" / "C" / "D" / "E" / "F"
+
+; Task from 2021-06-15 interim: update ABNF later
+</pre><a href="#section-3.5.4.1-4" class="pilcrow">¶</a>
+</div>
+<p id="section-3.5.4.1-5">Applying the <code>index-selector</code> to an array, a numerical <code>element-index</code> is required. JSONPath allows it to be negative.<a href="#section-3.5.4.1-5" class="pilcrow">¶</a></p>
+<div id="section-3.5.4.1-6">
+<pre class="sourcecode lang-abnf">
+element-index   = int                             ; decimal integer
+
+int             = ["-"] ( "0" / (DIGIT1 *DIGIT) ) ; -  optional
+DIGIT1          = %x31-39                         ; 1-9 non-zero digit
+</pre><a href="#section-3.5.4.1-6" class="pilcrow">¶</a>
+</div>
+<p id="section-3.5.4.1-7">Notes:
+1. <code>double-quoted</code> strings follow JSON in <span>[<a href="#RFC8259" class="xref">RFC8259</a>]</span>;
+   <code>single-quoted</code> strings follow an analogous pattern.
+2. An <code>element-index</code> is an integer (in base 10, as in JSON numbers).
+3. As in JSON numbers, the syntax does not allow octal-like integers with leading zeros such as <code>01</code> or <code>-01</code>.<a href="#section-3.5.4.1-7" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="semantics-4">
+<section id="section-3.5.4.2">
+            <h5 id="name-semantics-5">
+<a href="#name-semantics-5" class="section-name selfRef">Semantics</a>
+            </h5>
+<p id="section-3.5.4.2-1">A <code>quoted-member-name</code> string MUST be converted to a
 member name by removing the surrounding quotes and
 replacing each escape sequence with its equivalent Unicode character, as
-in the table below:<a href="#section-3.5.2.3.2-1" class="pilcrow">¶</a></p>
+in the table below:<a href="#section-3.5.4.2-1" class="pilcrow">¶</a></p>
 <span id="name-escape-sequence-replacement"></span><table class="center" id="table-3">
-                <caption>
+              <caption>
 <a href="#table-3" class="selfRef">Table 3</a>:
 <a href="#name-escape-sequence-replacement" class="selfRef">Escape Sequence Replacements</a>
+              </caption>
+<thead>
+                <tr>
+                  <th class="text-center" rowspan="1" colspan="1">Escape Sequence</th>
+                  <th class="text-center" rowspan="1" colspan="1">Unicode Character</th>
+                  <th class="text-left" rowspan="1" colspan="1">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">\b</td>
+                  <td class="text-center" rowspan="1" colspan="1">U+0008</td>
+                  <td class="text-left" rowspan="1" colspan="1">BS backspace</td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">\t</td>
+                  <td class="text-center" rowspan="1" colspan="1">U+0009</td>
+                  <td class="text-left" rowspan="1" colspan="1">HT horizontal tab</td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">\n</td>
+                  <td class="text-center" rowspan="1" colspan="1">U+000A</td>
+                  <td class="text-left" rowspan="1" colspan="1">LF line feed</td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">\f</td>
+                  <td class="text-center" rowspan="1" colspan="1">U+000C</td>
+                  <td class="text-left" rowspan="1" colspan="1">FF form feed</td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">\r</td>
+                  <td class="text-center" rowspan="1" colspan="1">U+000D</td>
+                  <td class="text-left" rowspan="1" colspan="1">CR carriage return</td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">\"</td>
+                  <td class="text-center" rowspan="1" colspan="1">U+0022</td>
+                  <td class="text-left" rowspan="1" colspan="1">quotation mark</td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">\'</td>
+                  <td class="text-center" rowspan="1" colspan="1">U+0027</td>
+                  <td class="text-left" rowspan="1" colspan="1">apostrophe</td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">\/</td>
+                  <td class="text-center" rowspan="1" colspan="1">U+002F</td>
+                  <td class="text-left" rowspan="1" colspan="1">slash (solidus)</td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">\\</td>
+                  <td class="text-center" rowspan="1" colspan="1">U+005C</td>
+                  <td class="text-left" rowspan="1" colspan="1">backslash (reverse solidus)</td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">\uXXXX</td>
+                  <td class="text-center" rowspan="1" colspan="1">U+XXXX</td>
+                  <td class="text-left" rowspan="1" colspan="1">unicode character</td>
+                </tr>
+              </tbody>
+            </table>
+<p id="section-3.5.4.2-3">The <code>index-selector</code> applied with a <code>quoted-member-name</code> to an object
+selects the node of the corresponding member value from it, if and only if that object has a member with that name.
+Nothing is selected from a value which is not a object.<a href="#section-3.5.4.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.5.4.2-4">Array indexing via <code>element-index</code> is a way of selecting a particular array element using a zero-based index.
+For example, selector <code>[0]</code> selects the first and selector <code>[4]</code> the fifth element of a sufficiently long array.<a href="#section-3.5.4.2-4" class="pilcrow">¶</a></p>
+<p id="section-3.5.4.2-5">A negative <code>element-index</code> counts from the array end.
+For example, selector <code>[-1]</code> selects the last and selector <code>[-2]</code> selects the last but one element of an array with at least two elements.<a href="#section-3.5.4.2-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="index-wild-card-selector">
+<section id="section-3.5.5">
+          <h4 id="name-index-wild-card-selector">
+<a href="#section-3.5.5" class="section-number selfRef">3.5.5. </a><a href="#name-index-wild-card-selector" class="section-name selfRef">Index Wild Card Selector</a>
+          </h4>
+<div id="syntax-5">
+<section id="section-3.5.5.1">
+            <h5 id="name-syntax-6">
+<a href="#name-syntax-6" class="section-name selfRef">Syntax</a>
+            </h5>
+<p id="section-3.5.5.1-1">The index wild card selector has the form <code>[*]</code>.<a href="#section-3.5.5.1-1" class="pilcrow">¶</a></p>
+<div id="section-3.5.5.1-2">
+<pre class="sourcecode lang-abnf">
+index-wild-selector    = "[" "*" "]"  ;  asterisk enclosed by brackets
+</pre><a href="#section-3.5.5.1-2" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+<div id="semantics-5">
+<section id="section-3.5.5.2">
+            <h5 id="name-semantics-6">
+<a href="#name-semantics-6" class="section-name selfRef">Semantics</a>
+            </h5>
+<p id="section-3.5.5.2-1">An <code>index-wild-selector</code>
+selects the nodes of all member values of an object as well as of all elements of an
+array.
+Applying the <code>index-wild-selector</code> to a primitive JSON value (such as
+a number, string, or true/false/null) selects no node.<a href="#section-3.5.5.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.5.2-2">The <code>index-wild-selector</code> behaves identically to the <code>dot-wild-selector</code>.<a href="#section-3.5.5.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="array-slice-selector">
+<section id="section-3.5.6">
+          <h4 id="name-array-slice-selector">
+<a href="#section-3.5.6" class="section-number selfRef">3.5.6. </a><a href="#name-array-slice-selector" class="section-name selfRef">Array Slice Selector</a>
+          </h4>
+<div id="syntax-6">
+<section id="section-3.5.6.1">
+            <h5 id="name-syntax-7">
+<a href="#name-syntax-7" class="section-name selfRef">Syntax</a>
+            </h5>
+<p id="section-3.5.6.1-1">The array slice selector has the form <code>[&lt;start&gt;:&lt;end&gt;:&lt;step&gt;]</code>.
+It selects elements starting at index <code>&lt;start&gt;</code>, ending at -- but
+not including -- <code>&lt;end&gt;</code>, while incrementing by <code>step</code>.<a href="#section-3.5.6.1-1" class="pilcrow">¶</a></p>
+<div id="section-3.5.6.1-2">
+<pre class="sourcecode lang-abnf">
+slice-selector = "[" slice-index "]"
+
+slice-index    = ws [start] ws ":" ws [end] [ws ":" ws [step] ws]
+
+start          = int       ; included in selection
+end            = int       ; not included in selection
+step           = int       ; default: 1
+
+ws             = *( %x20 / ; Space
+                    %x09 / ; Horizontal tab
+                    %x0A / ; Line feed or New line
+                    %x0D ) ; Carriage return
+</pre><a href="#section-3.5.6.1-2" class="pilcrow">¶</a>
+</div>
+<p id="section-3.5.6.1-3">The <code>slice-selector</code> consists of three optional decimal integers separated by colons.<a href="#section-3.5.6.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="semantics-6">
+<section id="section-3.5.6.2">
+            <h5 id="name-semantics-7">
+<a href="#name-semantics-7" class="section-name selfRef">Semantics</a>
+            </h5>
+<p id="section-3.5.6.2-1">The <code>slice-selector</code> was inspired by the slice operator of ECMAScript
+4 (ES4), which was deprecated in 2014, and that of Python.<a href="#section-3.5.6.2-1" class="pilcrow">¶</a></p>
+<div id="informal-introduction">
+<section id="section-3.5.6.2.1">
+              <h6 id="name-informal-introduction">
+<a href="#name-informal-introduction" class="section-name selfRef">Informal Introduction</a>
+              </h6>
+<p id="section-3.5.6.2.1-1">This section is non-normative.<a href="#section-3.5.6.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.6.2.1-2">Array indexing is a way of selecting a particular element of an array using
+a 0-based index.
+For example, the expression <code>[0]</code> selects the first element of a non-empty array.<a href="#section-3.5.6.2.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.5.6.2.1-3">Negative indices index from the end of an array.
+For example, the expression <code>[-2]</code> selects the last but one element of an array with at least two elements.<a href="#section-3.5.6.2.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.5.6.2.1-4">Array slicing is inspired by the behaviour of the <code>Array.prototype.slice</code> method
+of the JavaScript language as defined by the ECMA-262 standard <span>[<a href="#ECMA-262" class="xref">ECMA-262</a>]</span>,
+with the addition of the <code>step</code> parameter, which is inspired by the Python slice expression.<a href="#section-3.5.6.2.1-4" class="pilcrow">¶</a></p>
+<p id="section-3.5.6.2.1-5">The array slice expression <code>[start:end:step]</code> selects elements at indices starting at <code>start</code>,
+incrementing by <code>step</code>, and ending with <code>end</code> (which is itself excluded).
+So, for example, the expression <code>[1:3]</code> (where <code>step</code> defaults to <code>1</code>)
+selects elements with indices <code>1</code> and <code>2</code> (in that order) whereas
+<code>[1:5:2]</code> selects elements with indices <code>1</code> and <code>3</code>.<a href="#section-3.5.6.2.1-5" class="pilcrow">¶</a></p>
+<p id="section-3.5.6.2.1-6">When <code>step</code> is negative, elements are selected in reverse order. Thus,
+for example, <code>[5:1:-2]</code> selects elements with indices <code>5</code> and <code>3</code>, in
+that order and <code>[::-1]</code> selects all the elements of an array in
+reverse order.<a href="#section-3.5.6.2.1-6" class="pilcrow">¶</a></p>
+<p id="section-3.5.6.2.1-7">When <code>step</code> is <code>0</code>, no elements are selected.
+This is the one case which differs from the behaviour of Python, which
+raises an error in this case.<a href="#section-3.5.6.2.1-7" class="pilcrow">¶</a></p>
+<p id="section-3.5.6.2.1-8">The following section specifies the behaviour fully, without depending on
+JavaScript or Python behaviour.<a href="#section-3.5.6.2.1-8" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="detailed-semantics">
+<section id="section-3.5.6.2.2">
+              <h6 id="name-detailed-semantics">
+<a href="#name-detailed-semantics" class="section-name selfRef">Detailed Semantics</a>
+              </h6>
+<p id="section-3.5.6.2.2-1">An array selector is either an array slice or an array index, which is defined
+in terms of an array slice.<a href="#section-3.5.6.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.6.2.2-2">A slice expression selects a subset of the elements of the input array, in
+the same order
+as the array or the reverse order, depending on the sign of the <code>step</code> parameter.
+It selects no nodes from a node which is not an array.<a href="#section-3.5.6.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-3.5.6.2.2-3">A slice is defined by the two slice parameters, <code>start</code> and <code>end</code>, and
+an iteration delta, <code>step</code>.
+Each of these parameters is
+optional. <code>len</code> is the length of the input array.<a href="#section-3.5.6.2.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.5.6.2.2-4">The default value for <code>step</code> is <code>1</code>.
+The default values for <code>start</code> and <code>end</code> depend on the sign of <code>step</code>,
+as follows:<a href="#section-3.5.6.2.2-4" class="pilcrow">¶</a></p>
+<span id="name-default-array-slice-start-a"></span><table class="center" id="table-4">
+                <caption>
+<a href="#table-4" class="selfRef">Table 4</a>:
+<a href="#name-default-array-slice-start-a" class="selfRef">Default array slice start and end values</a>
                 </caption>
 <thead>
                   <tr>
-                    <th class="text-center" rowspan="1" colspan="1">Escape Sequence</th>
-                    <th class="text-center" rowspan="1" colspan="1">Unicode Character</th>
+                    <th class="text-left" rowspan="1" colspan="1">Condition</th>
+                    <th class="text-left" rowspan="1" colspan="1">start</th>
+                    <th class="text-left" rowspan="1" colspan="1">end</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td class="text-center" rowspan="1" colspan="1">"\" %x22</td>
-                    <td class="text-center" rowspan="1" colspan="1">U+0022</td>
+                    <td class="text-left" rowspan="1" colspan="1">step &gt;= 0</td>
+                    <td class="text-left" rowspan="1" colspan="1">0</td>
+                    <td class="text-left" rowspan="1" colspan="1">len</td>
                   </tr>
                   <tr>
-                    <td class="text-center" rowspan="1" colspan="1">"\" "'"</td>
-                    <td class="text-center" rowspan="1" colspan="1">U+0027</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center" rowspan="1" colspan="1">"\" "/"</td>
-                    <td class="text-center" rowspan="1" colspan="1">U+002F</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center" rowspan="1" colspan="1">"\" "\"</td>
-                    <td class="text-center" rowspan="1" colspan="1">U+005C</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center" rowspan="1" colspan="1">"\" "b"</td>
-                    <td class="text-center" rowspan="1" colspan="1">U+0008</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center" rowspan="1" colspan="1">"\" "f"</td>
-                    <td class="text-center" rowspan="1" colspan="1">U+000C</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center" rowspan="1" colspan="1">"\" "n"</td>
-                    <td class="text-center" rowspan="1" colspan="1">U+000A</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center" rowspan="1" colspan="1">"\" "r"</td>
-                    <td class="text-center" rowspan="1" colspan="1">U+000D</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center" rowspan="1" colspan="1">"\" "t"</td>
-                    <td class="text-center" rowspan="1" colspan="1">U+0009</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center" rowspan="1" colspan="1">"\" uXXXX</td>
-                    <td class="text-center" rowspan="1" colspan="1">U+XXXX</td>
+                    <td class="text-left" rowspan="1" colspan="1">step &lt; 0</td>
+                    <td class="text-left" rowspan="1" colspan="1">len - 1</td>
+                    <td class="text-left" rowspan="1" colspan="1">-len - 1</td>
                   </tr>
                 </tbody>
               </table>
-<p id="section-3.5.2.3.2-3">The child selects the value corresponding to the member name from any object
-node that has a member with that name.
-It selects no nodes from a node which is not a object.<a href="#section-3.5.2.3.2-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
-<div id="array-selector">
-<section id="section-3.5.2.4">
-            <h5 id="name-array-selector">
-<a href="#section-3.5.2.4" class="section-number selfRef">3.5.2.4. </a><a href="#name-array-selector" class="section-name selfRef">Array Selector</a>
-            </h5>
-<div id="syntax-4">
-<section id="section-3.5.2.4.1">
-              <h6 id="name-syntax-5">
-<a href="#name-syntax-5" class="section-name selfRef">Syntax</a>
-              </h6>
-<p id="section-3.5.2.4.1-1">An array selector selects zero or more elements of an array node.
-An array selector takes the form of an index, which selects at most one element,
-or a slice, which selects zero or more elements.<a href="#section-3.5.2.4.1-1" class="pilcrow">¶</a></p>
-<div id="section-3.5.2.4.1-2">
-<pre class="sourcecode lang-abnf">
-union-element =/ array-index / array-slice
-</pre><a href="#section-3.5.2.4.1-2" class="pilcrow">¶</a>
-</div>
-<p id="section-3.5.2.4.1-3">An array index is an integer (in base 10).<a href="#section-3.5.2.4.1-3" class="pilcrow">¶</a></p>
-<div id="section-3.5.2.4.1-4">
-<pre class="sourcecode lang-abnf">
-array-index = integer
-
-integer = ["-"] ("0" / (DIGIT1 *DIGIT))
-                            ; optional - followed by 0 or
-                            ; sequence of digits with no leading zero
-DIGIT1 = %x31-39            ; non-zero digit
-</pre><a href="#section-3.5.2.4.1-4" class="pilcrow">¶</a>
-</div>
-<p id="section-3.5.2.4.1-5">Note: the syntax does not allow integers with leading zeros such as <code>01</code> and <code>-01</code>.<a href="#section-3.5.2.4.1-5" class="pilcrow">¶</a></p>
-<p id="section-3.5.2.4.1-6">An array slice consists of three optional integers (in base 10) separated by colons.<a href="#section-3.5.2.4.1-6" class="pilcrow">¶</a></p>
-<div id="section-3.5.2.4.1-7">
-<pre class="sourcecode lang-abnf">
-array-slice = [ start ] ws ":" ws [ end ]
-                   [ ws ":" ws [ step ] ]
-start = integer
-end = integer
-step = integer
-</pre><a href="#section-3.5.2.4.1-7" class="pilcrow">¶</a>
-</div>
-<p id="section-3.5.2.4.1-8">Note: the array slices <code>:</code> and <code>::</code> are both syntactically valid, as are <code>:2:2</code>, <code>2::2</code>, and <code>2:4:</code>.<a href="#section-3.5.2.4.1-8" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="semantics-4">
-<section id="section-3.5.2.4.2">
-              <h6 id="name-semantics-5">
-<a href="#name-semantics-5" class="section-name selfRef">Semantics</a>
-              </h6>
-<div id="informal-introduction">
-<section id="section-3.5.2.4.2.1">
-                <h6 id="name-informal-introduction">
-<a href="#name-informal-introduction" class="section-name selfRef">Informal Introduction</a>
-                </h6>
-<p id="section-3.5.2.4.2.1-1">This section is non-normative.<a href="#section-3.5.2.4.2.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.5.2.4.2.1-2">Array indexing is a way of selecting a particular element of an array using
-a 0-based index.
-For example, the expression <code>[0]</code> selects the first element of a non-empty array.<a href="#section-3.5.2.4.2.1-2" class="pilcrow">¶</a></p>
-<p id="section-3.5.2.4.2.1-3">Negative indices index from the end of an array.
-For example, the expression <code>[-2]</code> selects the last but one element of an array with at least two elements.<a href="#section-3.5.2.4.2.1-3" class="pilcrow">¶</a></p>
-<p id="section-3.5.2.4.2.1-4">Array slicing is inspired by the behaviour of the <code>Array.prototype.slice</code> method
-of the JavaScript language as defined by the ECMA-262 standard <span>[<a href="#ECMA-262" class="xref">ECMA-262</a>]</span>,
-with the addition of the <code>step</code> parameter, which is inspired by the Python slice expression.<a href="#section-3.5.2.4.2.1-4" class="pilcrow">¶</a></p>
-<p id="section-3.5.2.4.2.1-5">The array slice expression <code>[start:end:step]</code> selects elements at indices starting at <code>start</code>,
-incrementing by <code>step</code>, and ending with <code>end</code> (which is itself excluded).
-So, for example, the expression <code>[1:3]</code> (where <code>step</code> defaults to <code>1</code>)
-selects elements with indices <code>1</code> and <code>2</code> (in that order) whereas
-<code>[1:5:2]</code> selects elements with indices <code>1</code> and <code>3</code>.<a href="#section-3.5.2.4.2.1-5" class="pilcrow">¶</a></p>
-<p id="section-3.5.2.4.2.1-6">When <code>step</code> is negative, elements are selected in reverse order. Thus,
-for example, <code>[5:1:-2]</code> selects elements with indices <code>5</code> and <code>3</code>, in
-that order and <code>[::-1]</code> selects all the elements of an array in
-reverse order.<a href="#section-3.5.2.4.2.1-6" class="pilcrow">¶</a></p>
-<p id="section-3.5.2.4.2.1-7">When <code>step</code> is <code>0</code>, no elements are selected.
-This is the one case which differs from the behaviour of Python, which
-raises an error in this case.<a href="#section-3.5.2.4.2.1-7" class="pilcrow">¶</a></p>
-<p id="section-3.5.2.4.2.1-8">The following section specifies the behaviour fully, without depending on
-JavaScript or Python behaviour.<a href="#section-3.5.2.4.2.1-8" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="detailed-semantics">
-<section id="section-3.5.2.4.2.2">
-                <h6 id="name-detailed-semantics">
-<a href="#name-detailed-semantics" class="section-name selfRef">Detailed Semantics</a>
-                </h6>
-<p id="section-3.5.2.4.2.2-1">An array selector is either an array slice or an array index, which is defined
-in terms of an array slice.<a href="#section-3.5.2.4.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-3.5.2.4.2.2-2">A slice expression selects a subset of the elements of the input array, in
-the same order
-as the array or the reverse order, depending on the sign of the <code>step</code> parameter.
-It selects no nodes from a node which is not an array.<a href="#section-3.5.2.4.2.2-2" class="pilcrow">¶</a></p>
-<p id="section-3.5.2.4.2.2-3">A slice is defined by the two slice parameters, <code>start</code> and <code>end</code>, and
-an iteration delta, <code>step</code>.
-Each of these parameters is
-optional. <code>len</code> is the length of the input array.<a href="#section-3.5.2.4.2.2-3" class="pilcrow">¶</a></p>
-<p id="section-3.5.2.4.2.2-4">The default value for <code>step</code> is <code>1</code>.
-The default values for <code>start</code> and <code>end</code> depend on the sign of <code>step</code>,
-as follows:<a href="#section-3.5.2.4.2.2-4" class="pilcrow">¶</a></p>
-<span id="name-default-array-slice-start-a"></span><table class="center" id="table-4">
-                  <caption>
-<a href="#table-4" class="selfRef">Table 4</a>:
-<a href="#name-default-array-slice-start-a" class="selfRef">Default array slice start and end values</a>
-                  </caption>
-<thead>
-                    <tr>
-                      <th class="text-left" rowspan="1" colspan="1">Condition</th>
-                      <th class="text-left" rowspan="1" colspan="1">start</th>
-                      <th class="text-left" rowspan="1" colspan="1">end</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="text-left" rowspan="1" colspan="1">step &gt;= 0</td>
-                      <td class="text-left" rowspan="1" colspan="1">0</td>
-                      <td class="text-left" rowspan="1" colspan="1">len</td>
-                    </tr>
-                    <tr>
-                      <td class="text-left" rowspan="1" colspan="1">step &lt; 0</td>
-                      <td class="text-left" rowspan="1" colspan="1">len - 1</td>
-                      <td class="text-left" rowspan="1" colspan="1">-len - 1</td>
-                    </tr>
-                  </tbody>
-                </table>
-<p id="section-3.5.2.4.2.2-6">Slice expression parameters <code>start</code> and <code>end</code> are not directly usable
+<p id="section-3.5.6.2.2-6">Slice expression parameters <code>start</code> and <code>end</code> are not directly usable
 as slice bounds and must first be normalized.
-Normalization for this purpose is defined as:<a href="#section-3.5.2.4.2.2-6" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.5.2.4.2.2-7">
+Normalization for this purpose is defined as:<a href="#section-3.5.6.2.2-6" class="pilcrow">¶</a></p>
+<div class="artwork art-text alignLeft" id="section-3.5.6.2.2-7">
 <pre>
 FUNCTION Normalize(i, len):
   IF i &gt;= 0 THEN
@@ -2085,16 +2215,16 @@ FUNCTION Normalize(i, len):
   ELSE
     RETURN len + i
   END IF
-</pre><a href="#section-3.5.2.4.2.2-7" class="pilcrow">¶</a>
+</pre><a href="#section-3.5.6.2.2-7" class="pilcrow">¶</a>
 </div>
-<p id="section-3.5.2.4.2.2-8">The result of the array indexing expression <code>[i]</code> applied to an array
+<p id="section-3.5.6.2.2-8">The result of the array indexing expression <code>[i]</code> applied to an array
 of length <code>len</code> is defined to be the result of the array
-slicing expression <code>[i:Normalize(i, len)+1:1]</code>.<a href="#section-3.5.2.4.2.2-8" class="pilcrow">¶</a></p>
-<p id="section-3.5.2.4.2.2-9">Slice expression parameters <code>start</code> and <code>end</code> are used to derive slice bounds <code>lower</code> and <code>upper</code>.
+slicing expression <code>[i:Normalize(i, len)+1:1]</code>.<a href="#section-3.5.6.2.2-8" class="pilcrow">¶</a></p>
+<p id="section-3.5.6.2.2-9">Slice expression parameters <code>start</code> and <code>end</code> are used to derive slice bounds <code>lower</code> and <code>upper</code>.
 The direction of the iteration, defined
 by the sign of <code>step</code>, determines which of the parameters is the lower bound and which
-is the upper bound:<a href="#section-3.5.2.4.2.2-9" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.5.2.4.2.2-10">
+is the upper bound:<a href="#section-3.5.6.2.2-9" class="pilcrow">¶</a></p>
+<div class="artwork art-text alignLeft" id="section-3.5.6.2.2-10">
 <pre>
 FUNCTION Bounds(start, end, step, len):
   n_start = Normalize(start, len)
@@ -2109,13 +2239,13 @@ FUNCTION Bounds(start, end, step, len):
   END IF
 
   RETURN (lower, upper)
-</pre><a href="#section-3.5.2.4.2.2-10" class="pilcrow">¶</a>
+</pre><a href="#section-3.5.6.2.2-10" class="pilcrow">¶</a>
 </div>
-<p id="section-3.5.2.4.2.2-11">The slice expression selects elements with indices between the lower and
+<p id="section-3.5.6.2.2-11">The slice expression selects elements with indices between the lower and
 upper bounds.
 In the following pseudocode, the <code>a(i)</code> construct expresses the
-0-based indexing operation on the underlying array.<a href="#section-3.5.2.4.2.2-11" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.5.2.4.2.2-12">
+0-based indexing operation on the underlying array.<a href="#section-3.5.6.2.2-11" class="pilcrow">¶</a></p>
+<div class="artwork art-text alignLeft" id="section-3.5.6.2.2-12">
 <pre>
 IF step &gt; 0 THEN
 
@@ -2134,16 +2264,377 @@ ELSE if step &lt; 0 THEN
   END WHILE
 
 END IF
-</pre><a href="#section-3.5.2.4.2.2-12" class="pilcrow">¶</a>
+</pre><a href="#section-3.5.6.2.2-12" class="pilcrow">¶</a>
 </div>
-<p id="section-3.5.2.4.2.2-13">When <code>step = 0</code>, no elements are selected and the result array is empty.<a href="#section-3.5.2.4.2.2-13" class="pilcrow">¶</a></p>
-<p id="section-3.5.2.4.2.2-14">An implementation MUST raise an error if any of the slice expression parameters
+<p id="section-3.5.6.2.2-13">When <code>step = 0</code>, no elements are selected and the result array is empty.<a href="#section-3.5.6.2.2-13" class="pilcrow">¶</a></p>
+<p id="section-3.5.6.2.2-14">An implementation MUST raise an error if any of the slice expression parameters
 does not fit in
 the implementation's representation of an integer.
 If a successfully parsed slice expression is evaluated against an array whose
 size doesn't
 fit in the implementation's representation of an integer, the implementation
-MUST raise an error.<a href="#section-3.5.2.4.2.2-14" class="pilcrow">¶</a></p>
+MUST raise an error.<a href="#section-3.5.6.2.2-14" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="descendant-selector">
+<section id="section-3.5.7">
+          <h4 id="name-descendant-selector">
+<a href="#section-3.5.7" class="section-number selfRef">3.5.7. </a><a href="#name-descendant-selector" class="section-name selfRef">Descendant Selector</a>
+          </h4>
+<div id="syntax-7">
+<section id="section-3.5.7.1">
+            <h5 id="name-syntax-8">
+<a href="#name-syntax-8" class="section-name selfRef">Syntax</a>
+            </h5>
+<p id="section-3.5.7.1-1">The descendant selector starts with a double dot <code>..</code> and can be
+followed by an object member name (similar to the <code>dot-selector</code>),
+by an <code>index-selector</code> acting on objects or arrays, or by a wild card.<a href="#section-3.5.7.1-1" class="pilcrow">¶</a></p>
+<div id="section-3.5.7.1-2">
+<pre class="sourcecode lang-abnf">
+descendant-selector = ".." ( dot-member-name      /  ; ..&lt;name&gt;
+                             index-selector       /  ; ..[&lt;index&gt;]
+                             index-wild-selector  /  ; ..[*]
+                             "*"                     ; ..*
+                           )
+</pre><a href="#section-3.5.7.1-2" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+<div id="semantics-7">
+<section id="section-3.5.7.2">
+            <h5 id="name-semantics-8">
+<a href="#name-semantics-8" class="section-name selfRef">Semantics</a>
+            </h5>
+<p id="section-3.5.7.2-1">The <code>descendant-selector</code> is inspired by ECMAScript for XML (E4X).
+It selects the node and all its descendants.<a href="#section-3.5.7.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="union-selector">
+<section id="section-3.5.8">
+          <h4 id="name-union-selector">
+<a href="#section-3.5.8" class="section-number selfRef">3.5.8. </a><a href="#name-union-selector" class="section-name selfRef">Union Selector</a>
+          </h4>
+<div id="syntax-8">
+<section id="section-3.5.8.1">
+            <h5 id="name-syntax-9">
+<a href="#section-3.5.8.1" class="section-number selfRef">3.5.8.1. </a><a href="#name-syntax-9" class="section-name selfRef">Syntax</a>
+            </h5>
+<p id="section-3.5.8.1-1">The union selector is syntactically related to the <code>index-selector</code>. It contains multiple, comma separated entries.<a href="#section-3.5.8.1-1" class="pilcrow">¶</a></p>
+<div id="section-3.5.8.1-2">
+<pre class="sourcecode lang-abnf">
+union-selector = "[" ws union-entry 1*(ws "," ws union-entry) ws "]"
+
+union-entry    =  ( quoted-member-name /
+                    element-index      /
+                    slice-index
+                  )
+</pre><a href="#section-3.5.8.1-2" class="pilcrow">¶</a>
+</div>
+<ul class="ulEmpty normal">
+<li class="ulEmpty normal" id="section-3.5.8.1-3.1">Task (T1): This, besides slice-index, is currently one of only two
+places in the document that mentions whitespace.  Whitespace needs
+to be handled throughout the ABNF syntax.  Room Consensus at the
+2021-06-15 interim was that JSONPath generally is generous with
+allowing insignificant whitespace throughout.  Minimizing the impact
+of the many whitespace insertion points by choosing a rule name such
+as "S" was mentioned.  Some conventions will probably help with
+minimizing the number of places where S needs to be inserted.<a href="#section-3.5.8.1-3.1" class="pilcrow">¶</a>
+</li>
+            </ul>
+</section>
+</div>
+<div id="semantics-8">
+<section id="section-3.5.8.2">
+            <h5 id="name-semantics-9">
+<a href="#section-3.5.8.2" class="section-number selfRef">3.5.8.2. </a><a href="#name-semantics-9" class="section-name selfRef">Semantics</a>
+            </h5>
+<p id="section-3.5.8.2-1">A union selects any node which is selected by at least one of the union selectors and selects the concatenation of the
+lists (in the order of the selectors) of nodes selected by the union elements.
+Note that any node selected in more than one of the union selectors is kept
+as many times in the node list.<a href="#section-3.5.8.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="filter-selector">
+<section id="section-3.5.9">
+          <h4 id="name-filter-selector">
+<a href="#section-3.5.9" class="section-number selfRef">3.5.9. </a><a href="#name-filter-selector" class="section-name selfRef">Filter Selector</a>
+          </h4>
+<div id="syntax-9">
+<section id="section-3.5.9.1">
+            <h5 id="name-syntax-10">
+<a href="#section-3.5.9.1" class="section-number selfRef">3.5.9.1. </a><a href="#name-syntax-10" class="section-name selfRef">Syntax</a>
+            </h5>
+<p id="section-3.5.9.1-1">The filter selector has the form <code>[?&lt;expr&gt;]</code>. It works via iterating over structured values, i.e. arrays and objects.<a href="#section-3.5.9.1-1" class="pilcrow">¶</a></p>
+<div id="section-3.5.9.1-2">
+<pre class="sourcecode lang-abnf">
+filter-selector    = "[?" boolean-expr "]"
+</pre><a href="#section-3.5.9.1-2" class="pilcrow">¶</a>
+</div>
+<p id="section-3.5.9.1-3">During iteration process each array element or object member is visited and its value -- accessible via symbol <code>@</code> -- or one of its descendants -- uniquely defined by a relative path -- is tested against a boolean expression <code>boolean-expr</code>.<a href="#section-3.5.9.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.5.9.1-4">The current item is selected if and only if the result is <code>true</code>.<a href="#section-3.5.9.1-4" class="pilcrow">¶</a></p>
+<div id="section-3.5.9.1-5">
+<pre class="sourcecode lang-abnf">
+
+boolean-expr = logical-expr
+logical-expr = ([neg-op] primary-expr) / logical-or-expr
+neg-op       = "!"                                  ; not operator
+primary-expr = "(" logical-or-expr ")"
+logical-or-expr = logical-and-expr *["||" logical-and-expr]
+logical-and-expr = comp-expr *["&amp;&amp;" comp-expr]
+
+comp-expr    = (rel-path-val /
+                json-path) [(comp-op comparable / ; comparison
+                            regex-op regex     /  ; RegEx test
+                            in-op container )]    ; containment test
+comp-op      = "==" / "!=" /                        ; comparison ...
+               "&lt;"  / "&gt;"  /                        ; operators
+               "&lt;=" / "&gt;="
+regex-op     = "~="                                 ; RegEx match
+in-op        = " in "                               ; in operator
+comparable   = number / string-literal /            ; primitive ...
+               true / false / null /                ; values only
+               rel-path-val /                       ; descendant value
+               json-path                            ; any value
+
+rel-path-val = "@" *(dot-selector / index-selector)
+
+container = &lt;TO BE DEFINED&gt;
+regex = &lt;TO BE DEFINED&gt;
+</pre><a href="#section-3.5.9.1-5" class="pilcrow">¶</a>
+</div>
+<p id="section-3.5.9.1-6">Notes:<a href="#section-3.5.9.1-6" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.5.9.1-7.1">Parentheses can be used with <code>boolean-expr</code> for grouping. So filter selection syntax in the original proposal <code>[?(&lt;expr&gt;)]</code> is naturally contained in the current lean syntax <code>[?&lt;expr&gt;]</code> as a special case.<a href="#section-3.5.9.1-7.1" class="pilcrow">¶</a>
+</li>
+              <li class="normal" id="section-3.5.9.1-7.2">Comparisons are restricted to primitive values (such as number, string, <code>true</code>, <code>false</code>, <code>null</code>). Comparisons with complex values will fail, i.e. no selection occurs.<a href="#section-3.5.9.1-7.2" class="pilcrow">¶</a>
+</li>
+              <li class="normal" id="section-3.5.9.1-7.3">Types are not implicitly converted in comparisons.
+So <code>"13 == '13'"</code> selects no node.<a href="#section-3.5.9.1-7.3" class="pilcrow">¶</a>
+</li>
+              <li class="normal" id="section-3.5.9.1-7.4">A member or element value by itself is <em>falsy</em> only, if it does not exist. Otherwise it is <em>truthy</em>, resulting in its value. To be more specific explicit comparisons are necessary. This existence test -- as an exception of the general rule -- also works with complex values.<a href="#section-3.5.9.1-7.4" class="pilcrow">¶</a>
+</li>
+              <li class="normal" id="section-3.5.9.1-7.5">Regular expression tests can be applied to <code>string</code> values only.<a href="#section-3.5.9.1-7.5" class="pilcrow">¶</a>
+</li>
+              <li class="normal" id="section-3.5.9.1-7.6">Containment tests work with arrays and objects.<a href="#section-3.5.9.1-7.6" class="pilcrow">¶</a>
+</li>
+              <li class="normal" id="section-3.5.9.1-7.7">Explicit boolean type conversion is done by the not operator <code>neg-op</code>.<a href="#section-3.5.9.1-7.7" class="pilcrow">¶</a>
+</li>
+              <li class="normal" id="section-3.5.9.1-7.8">The behaviour of operators is consistent with the 'C'-family of programming languages.<a href="#section-3.5.9.1-7.8" class="pilcrow">¶</a>
+</li>
+            </ul>
+</section>
+</div>
+<div id="semantics-9">
+<section id="section-3.5.9.2">
+            <h5 id="name-semantics-10">
+<a href="#section-3.5.9.2" class="section-number selfRef">3.5.9.2. </a><a href="#name-semantics-10" class="section-name selfRef">Semantics</a>
+            </h5>
+<p id="section-3.5.9.2-1">The <code>filter-selector</code> works with arrays and objects exclusively. Its result might be a list of <em>zero</em>, <em>one</em>, <em>multiple</em> or <em>all</em> of their element or member values then. Applied to other value types, it will select nothing.<a href="#section-3.5.9.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.9.2-2">Negation operator <code>neg-op</code> allows to test <em>falsiness</em> of values.<a href="#section-3.5.9.2-2" class="pilcrow">¶</a></p>
+<span id="name-test-falsiness-of-json-valu"></span><table class="center" id="table-5">
+              <caption>
+<a href="#table-5" class="selfRef">Table 5</a>:
+<a href="#name-test-falsiness-of-json-valu" class="selfRef">Test falsiness of JSON values</a>
+              </caption>
+<thead>
+                <tr>
+                  <th class="text-center" rowspan="1" colspan="1">Type</th>
+                  <th class="text-center" rowspan="1" colspan="1">Negation</th>
+                  <th class="text-center" rowspan="1" colspan="1">Result</th>
+                  <th class="text-center" rowspan="1" colspan="1">Comment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">Number</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>!0</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>true</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>false</code> for non-zero number</td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">String</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>!""</code><br><code>!''</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>true</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>false</code> for non-empty string</td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>null</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>!null</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>true</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">--</td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>true</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>!true</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>false</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">--</td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>false</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>!false</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>true</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">--</td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">Object</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>!{}</code><br><code>!{a:0}</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>false</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">always <code>false</code>
+</td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">Array</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>![]</code><br><code>![0]</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>false</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">always <code>false</code>
+</td>
+                </tr>
+              </tbody>
+            </table>
+<p id="section-3.5.9.2-4">Applying negation operator twice <code>!!</code> gives us <em>truthiness</em> of values.<a href="#section-3.5.9.2-4" class="pilcrow">¶</a></p>
+<p id="section-3.5.9.2-5">Some examples:<a href="#section-3.5.9.2-5" class="pilcrow">¶</a></p>
+<table class="center" id="table-6">
+              <caption><a href="#table-6" class="selfRef">Table 6</a></caption>
+<thead>
+                <tr>
+                  <th class="text-left" rowspan="1" colspan="1">JSON</th>
+                  <th class="text-center" rowspan="1" colspan="1">Query</th>
+                  <th class="text-center" rowspan="1" colspan="1">Result</th>
+                  <th class="text-left" rowspan="1" colspan="1">Comment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <code>{"a":1,"b":2}</code><br><code>[2,3,4]</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>$[?@]</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>[1,2]</code><br><code>[2,3,4]</code>
+</td>
+                  <td class="text-left" rowspan="1" colspan="1">Same as <code>$.*</code> or <code>$[*]</code>
+</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <code>./.</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>$[?@==2]</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>[2]</code><br><code>[2]</code>
+</td>
+                  <td class="text-left" rowspan="1" colspan="1">Select by value.</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <code>{"a":{"b":{"c":{}}}</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>$[?@.b]</code><br><code>$[?@.b.c]</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>[{"b":{"c":{}}]</code>
+</td>
+                  <td class="text-left" rowspan="1" colspan="1">Existence</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <code>{"key":false}</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>$[?index(@)=='key']</code><br><code>$[?index(@)==0]</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>[false]</code><br><code>[]</code>
+</td>
+                  <td class="text-left" rowspan="1" colspan="1">Select object member</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <code>[3,4,5]</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>$[?index(@)==2]</code><br><code>$[?index(@)==17]</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>[5]</code><br><code>[]</code>
+</td>
+                  <td class="text-left" rowspan="1" colspan="1">Select array element</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <code>{"col":"red"}</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>$[?@ in ['red','green','blue']]</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>["red"]</code>
+</td>
+                  <td class="text-left" rowspan="1" colspan="1">Containment</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <code>{"a":{"b":{5},c:0}}</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>$[?@.b==5 &amp;&amp; !@.c]</code>
+</td>
+                  <td class="text-center" rowspan="1" colspan="1">
+                    <code>[{"b":{5},c:0}]</code>
+</td>
+                  <td class="text-left" rowspan="1" colspan="1">Existence</td>
+                </tr>
+              </tbody>
+            </table>
 </section>
 </div>
 </section>
@@ -2152,33 +2643,60 @@ MUST raise an error.<a href="#section-3.5.2.4.2.2-14" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
-</section>
+<div id="expression-language">
+<section id="section-4">
+      <h2 id="name-expression-language">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-expression-language" class="section-name selfRef">Expression Language</a>
+      </h2>
+<ul class="ulEmpty normal">
+<li class="ulEmpty normal" id="section-4-1.1">Task (T2): Separate out expression language.  For now, this section
+is a repository for ABNF taken from <span>[<a href="#RFC8259" class="xref">RFC8259</a>]</span>.  This needs to be
+deduplicated with definitions above.<a href="#section-4-1.1" class="pilcrow">¶</a>
+</li>
+      </ul>
+<div id="section-4-2">
+<pre class="sourcecode lang-abnf">
+number = [ minus ] jsint [ frac ] [ exp ]
+decimal-point = %x2E       ; .
+digit1-9 = %x31-39         ; 1-9
+e = %x65 / %x45            ; e E
+exp = e [ minus / plus ] 1*DIGIT
+frac = decimal-point 1*DIGIT
+jsint = zero / ( digit1-9 *DIGIT )
+minus = %x2D               ; -
+plus = %x2B                ; +
+zero = %x30                ; 0
+
+false = %x66.61.6c.73.65   ; false
+null  = %x6e.75.6c.6c      ; null
+true  = %x74.72.75.65      ; true
+</pre><a href="#section-4-2" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 <div id="IANA">
-<section id="section-4">
+<section id="section-5">
       <h2 id="name-iana-considerations">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-4-1">TBD: Define a media type for JSONPath expressions.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">TBD: Define a media type for JSONPath expressions.<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="Security">
-<section id="section-5">
+<section id="section-6">
       <h2 id="name-security-considerations">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-5-1">This section gives security considerations, as required by <span>[<a href="#RFC3552" class="xref">RFC3552</a>]</span>.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">This section gives security considerations, as required by <span>[<a href="#RFC3552" class="xref">RFC3552</a>]</span>.<a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<section id="section-6">
+<section id="section-7">
       <h2 id="name-references">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
-<section id="section-6.1">
+<section id="section-7.1">
         <h3 id="name-normative-references">
-<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
@@ -2203,14 +2721,18 @@ MUST raise an error.<a href="#section-3.5.2.4.2.2-14" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 </dl>
 </section>
-<section id="section-6.2">
+<section id="section-7.2">
         <h3 id="name-informative-references">
-<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="E4X">[E4X]</dt>
         <dd>
 <span class="refAuthor">ISO</span>, <span class="refTitle">"Information technology — ECMAScript for XML (E4X) specification"</span>, <span class="seriesInfo">ISO/IEC 22537:2006 </span>, <time datetime="2006" class="refDate">2006</time>. </dd>
+<dd class="break"></dd>
+<dt id="E4X-overview">[E4X-overview]</dt>
+        <dd>
+<span class="refAuthor">Adobe Systems Inc., The Mozilla Foundation, Opera Software ASA, and others</span>, <span class="refTitle">"Proposed ECMAScript 4 Edition — Language Overview"</span>, <time datetime="2007" class="refDate">2007</time>. </dd>
 <dd class="break"></dd>
 <dt id="ECMA-262">[ECMA-262]</dt>
         <dd>
@@ -2218,7 +2740,7 @@ MUST raise an error.<a href="#section-3.5.2.4.2.2-14" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="JSONPath-orig">[JSONPath-orig]</dt>
         <dd>
-<span class="refAuthor">Gössner, S.</span>, <span class="refTitle">"JSONPath – XPath for JSON"</span>, <time datetime="2007-02-21" class="refDate">21 February 2007</time>, <span>&lt;<a href="https://goessner.net/articles/JsonPath/">https://goessner.net/articles/JsonPath/</a>&gt;</span>. </dd>
+<span class="refAuthor">Gössner, S.</span>, <span class="refTitle">"JSONPath — XPath for JSON"</span>, <time datetime="2007-02-21" class="refDate">21 February 2007</time>, <span>&lt;<a href="https://goessner.net/articles/JsonPath/">https://goessner.net/articles/JsonPath/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC3552">[RFC3552]</dt>
         <dd>
@@ -2273,6 +2795,17 @@ http://coli.lili.uni-bielefeld.de/~andreas/Seminare/sommer02/books.xml
 <a href="mailto:cabo@tzi.org" class="email">cabo@tzi.org</a>
 </div>
 </address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Marko Mikulicic</span></div>
+<div dir="auto" class="left"><span class="org">InfluxData, Inc.</span></div>
+<div dir="auto" class="left">
+<span class="locality">Pisa</span> </div>
+<div dir="auto" class="left"><span class="country-name">Italy</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:mmikulicic@gmail.com" class="email">mmikulicic@gmail.com</a>
+</div>
+</address>
 </section>
 </div>
 <div id="authors-addresses">
@@ -2297,17 +2830,6 @@ http://coli.lili.uni-bielefeld.de/~andreas/Seminare/sommer02/books.xml
 <div class="email">
 <span>Email:</span>
 <a href="mailto:esurov.tsp@gmail.com" class="email">esurov.tsp@gmail.com</a>
-</div>
-</address>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Marko Mikulicic (<span class="role">editor</span>)</span></div>
-<div dir="auto" class="left"><span class="org">InfluxData, Inc.</span></div>
-<div dir="auto" class="left">
-<span class="locality">Pisa</span> </div>
-<div dir="auto" class="left"><span class="country-name">Italy</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:mmikulicic@gmail.com" class="email">mmikulicic@gmail.com</a>
 </div>
 </address>
 <address class="vcard">
