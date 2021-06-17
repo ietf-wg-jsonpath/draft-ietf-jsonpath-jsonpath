@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-06-15T01:02:48.463324+00:00",
+  "timestamp": "2021-06-17T00:57:26.774719+00:00",
   "repo": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
   "labels": [
     {
@@ -4481,6 +4481,24 @@
           "updatedAt": "2021-05-12T08:55:03Z"
         }
       ]
+    },
+    {
+      "number": 103,
+      "id": "MDU6SXNzdWU5MjE1MDYyMTE=",
+      "title": "Partial determinism of the descendant selector (..)",
+      "url": "https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/issues/103",
+      "state": "OPEN",
+      "author": "glyn",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "glyn"
+      ],
+      "labels": [],
+      "body": "At today's meeting, I agreed to submit a PR to float the idea of partial determinism for the descendants operator, even though the consensus seems to be against any determinism for that operator. Given the descendants operator PR https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/102 isn't yet merged, I'll start with an issue to capture discussion and avoid rebasing effort.\r\n\r\nWe probably don't want to _force_ any determinism on implementations, so the idea is to provide a recommendation for implementations which want to provide partial determinism and use \"SHOULD\" language so the recommendation is optional. Then implementations which opt in will agree on the ordering recommentations.\r\n\r\nThe benefits of partial determinism are:\r\n* improved predictability and interoperation\r\n* relative ease for JSONPath users writing tests, as there are fewer possible outputs.\r\n\r\nIn PR https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/102 there are no constraints on the non-determinism of the descendants operator:\r\n> The `descendant-selector` is inspired by ECMAScript for XML (E4X). It selects object members and array elements in a recursive descent process.\r\n\r\n(See also a [suggested improvement](https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/102/files#r651871638) to the above text.)\r\n\r\nWe agreed in issue https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/issues/60 to allow non-determinism in the order in which objects are iterated and the same should be true when the descendants operator encounters an object. But there are other details of the ordering which could be tied down:\r\n* arrays SHOULD be visited in array order\r\n* nodes SHOULD be visited strictly before their descendants (so-called _pre-order_ traversal).\r\n\r\n(_Post-order_ traversal, in which nodes are visited strictly after their descendants, would be an equally valid alternative.)\r\n\r\nOne of the reasons given at today's meeting for allowing full determinism was for parallel processing, so it would be interesting to discuss what constraints the above rules produce on parallel processing. The order of collection of the results seems to be more significant than whether or not parallel processing is used.",
+      "createdAt": "2021-06-15T15:13:00Z",
+      "updatedAt": "2021-06-15T15:13:00Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -10508,7 +10526,7 @@
       "labels": [],
       "body": "* Updated year\r\n* Updated Marko's affiliation\r\n* Pin versions in Dockerfiles in order to limit unrelated diffs in PRs\r\n\r\nPreview visible at: https://mkmik.github.io/internet-draft/",
       "createdAt": "2021-01-22T22:49:05Z",
-      "updatedAt": "2021-01-23T10:29:32Z",
+      "updatedAt": "2021-06-15T08:43:34Z",
       "baseRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
       "baseRefName": "master",
       "baseRefOid": "2330473a11f68072100b9c9c337a85b8abe41574",
@@ -10528,6 +10546,13 @@
           "body": "\r\n> Question: what's all the base64 in the generated XML?\r\n\r\nThe markdown source (compressed) out of which the xml file is generated.",
           "createdAt": "2021-01-23T06:45:56Z",
           "updatedAt": "2021-01-23T06:45:56Z"
+        },
+        {
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "body": "\r\n> Question: what's all the base64 in the generated XML?\r\n\r\nThe markdown source, as that cannot be submitted to the datatracker yet.\r\n",
+          "createdAt": "2021-06-15T08:43:34Z",
+          "updatedAt": "2021-06-15T08:43:34Z"
         }
       ],
       "reviews": [
@@ -13682,21 +13707,21 @@
       "id": "MDExOlB1bGxSZXF1ZXN0NjQzMDQ3NjA1",
       "title": "84 terminology",
       "url": "https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/97",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "gregsdennis",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Resolves #84\r\n\r\n## Alterations\r\n\r\n- Removed `Object`, and `Array` since they are defined in 8259.  Replaced with extended verbiage at the beginning of the section that declares that 8259 applies.\r\n- Replaced \"JSON value\" with \"value\" in line with the above.\r\n- Relabeled \"output path\" as \"normalized path\"\r\n\r\n## Additions\r\n\r\n- String - a clarification and expansion on the JSON definition\r\n- Root Node\r\n\r\n## Other\r\n\r\n- Reordered terms and paragraphs so that reading through doesn't use terms that haven't been defined yet (as much as possible).\r\n- Removed a redundant parenthetical sentence in the *Processing Model* section.\r\n- Removed some un-necessary self-references (e.g. \"JSONPath query\" rather than just \"query\").\r\n- Made some general edits\r\n\r\n## Notes\r\n\r\n### Existing in-place definitions\r\n\r\n\"Selector\" and \"slice\" are defined in-place where they're needed.  Do we need to define them in the terminology section as well?\r\n\r\n### Key\r\n\r\nThe draft currently uses \"name\" instead of \"key\" as we had agreed in the meeting.  I suspect that this is because 8259 uses \"name.\"  Since we're trying to align with that, I've left in \"name.\"\r\n\r\n### Index\r\n\r\nWe discussed using \"index\" as a generic term for either a numeric index for arrays or a name for objects.  However in editing this section, I'm starting to second-guess that decision.\r\n\r\nGiven that we've opted to define a union selector as taking as arguments \"indices,\" \"slices,\" and/or \"filters,\" I don't think it's too much of a stretch to separately include \"indices\" and \"names.\"  Because of this, I left the definition of \"index\" as is.\r\n\r\nThis also addresses the tendency to associate \"index\" with arrays, as @glyn had mentioned.\r\n\r\nI'm leaving the changes to \"union selector\" to include all of the various things it can accept for another PR as this is solely to clean up terminology.\r\n\r\n### Emphasizing terms\r\n\r\nI tried capitalizing defined terms to emphasize their special meaning.  It got weird to read, though, since they're used so frequently.  Maybe not _every_ instance of the terms needs to be emphasized.  I'm not sure.  Happy to discuss.\r\n\r\nI've left this change out for now, but there are definitely inconsistencies present already.\r\n",
       "createdAt": "2021-05-12T10:40:26Z",
-      "updatedAt": "2021-06-14T12:43:41Z",
+      "updatedAt": "2021-06-15T09:37:29Z",
       "baseRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
       "baseRefName": "main",
       "baseRefOid": "43d2e974d64d8f450c7bbc68a9db6d49219343ec",
       "headRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
       "headRefName": "84-terminology",
       "headRefOid": "fc8dddbeaa487bb47519d59fb33e0b332083bd66",
-      "closedAt": null,
+      "closedAt": "2021-06-15T09:37:24Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -13791,6 +13816,13 @@
           "body": "Oops.  The commit text \"slightly fixed #97\" triggered the automatic close of this PR.\r\nThat was not my intention...",
           "createdAt": "2021-06-14T10:34:26Z",
           "updatedAt": "2021-06-14T10:34:26Z"
+        },
+        {
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "body": "All pertinent details replicated inn #102.  Closing this.",
+          "createdAt": "2021-06-15T09:37:24Z",
+          "updatedAt": "2021-06-15T09:37:24Z"
         }
       ],
       "reviews": [
@@ -14280,21 +14312,21 @@
       "id": "MDExOlB1bGxSZXF1ZXN0NjY3MDk3Nzgx",
       "title": "Selectors reworked ...",
       "url": "https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/98",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "goessner",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "... Filter selectors added",
       "createdAt": "2021-06-10T17:11:17Z",
-      "updatedAt": "2021-06-14T16:11:52Z",
+      "updatedAt": "2021-06-16T10:47:44Z",
       "baseRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
       "baseRefName": "main",
       "baseRefOid": "4b8e9e9f05cb20d905e0c863c02a905c321af51f",
       "headRepository": null,
       "headRefName": "main",
       "headRefOid": "1dfeb0556ed4a503e6fbef38c2d66044660a9ede",
-      "closedAt": null,
+      "closedAt": "2021-06-16T10:47:44Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -15041,6 +15073,546 @@
               "updatedAt": "2021-06-14T12:59:54Z"
             }
           ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNTc2Mzk4",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T05:41:48Z",
+          "updatedAt": "2021-06-15T05:41:49Z",
+          "comments": [
+            {
+              "originalPosition": 177,
+              "body": "Resolved in #102",
+              "createdAt": "2021-06-15T05:41:48Z",
+              "updatedAt": "2021-06-15T05:41:49Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNTc4OTg3",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T05:47:25Z",
+          "updatedAt": "2021-06-15T05:47:25Z",
+          "comments": [
+            {
+              "originalPosition": 138,
+              "body": "MAY is an interoperability keyword (RFC 2119), while this is just a suggestion for an alternative approach, so MAY seems inappropriate.  Proposed wording in #102.",
+              "createdAt": "2021-06-15T05:47:25Z",
+              "updatedAt": "2021-06-15T05:47:25Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNTc5OTkw",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T05:49:22Z",
+          "updatedAt": "2021-06-15T05:49:22Z",
+          "comments": [
+            {
+              "originalPosition": 158,
+              "body": "Resolved in #102",
+              "createdAt": "2021-06-15T05:49:22Z",
+              "updatedAt": "2021-06-15T05:49:22Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNTgwMDY1",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T05:49:31Z",
+          "updatedAt": "2021-06-15T05:49:31Z",
+          "comments": [
+            {
+              "originalPosition": 342,
+              "body": "Resolved in #102",
+              "createdAt": "2021-06-15T05:49:31Z",
+              "updatedAt": "2021-06-15T05:49:31Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNTgxNTQ4",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T05:52:26Z",
+          "updatedAt": "2021-06-15T05:52:26Z",
+          "comments": [
+            {
+              "originalPosition": 355,
+              "body": "Resolved in #102",
+              "createdAt": "2021-06-15T05:52:26Z",
+              "updatedAt": "2021-06-15T05:52:26Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNTgyMjU5",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T05:53:48Z",
+          "updatedAt": "2021-06-15T05:53:48Z",
+          "comments": [
+            {
+              "originalPosition": 517,
+              "body": "Resolved in #102",
+              "createdAt": "2021-06-15T05:53:48Z",
+              "updatedAt": "2021-06-15T05:53:48Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNTgyNDE2",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T05:54:05Z",
+          "updatedAt": "2021-06-15T05:54:05Z",
+          "comments": [
+            {
+              "originalPosition": 517,
+              "body": "Resolved in #102",
+              "createdAt": "2021-06-15T05:54:05Z",
+              "updatedAt": "2021-06-15T05:54:05Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjIzMjkz",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T06:57:25Z",
+          "updatedAt": "2021-06-15T06:57:26Z",
+          "comments": [
+            {
+              "originalPosition": 369,
+              "body": "Resolved in #102",
+              "createdAt": "2021-06-15T06:57:25Z",
+              "updatedAt": "2021-06-15T06:57:26Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjI1NTU3",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:00:11Z",
+          "updatedAt": "2021-06-15T07:00:11Z",
+          "comments": [
+            {
+              "originalPosition": 482,
+              "body": "This change properly captures whether the item should be selected if the expression fails evaluation (e.g. if `@.foo` isn't found).",
+              "createdAt": "2021-06-15T07:00:11Z",
+              "updatedAt": "2021-06-15T07:00:11Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjI3MjAy",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:02:11Z",
+          "updatedAt": "2021-06-15T07:02:11Z",
+          "comments": [
+            {
+              "originalPosition": 511,
+              "body": "I'd like to see a set of examples.  The parentheses create a level of human-readability that I'm afraid will be lost by removing them.  This is, of course, subjective.  The change is completely compatible.",
+              "createdAt": "2021-06-15T07:02:11Z",
+              "updatedAt": "2021-06-15T07:02:35Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjI5MjA0",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:04:40Z",
+          "updatedAt": "2021-06-15T07:04:41Z",
+          "comments": [
+            {
+              "originalPosition": 513,
+              "body": "I would say that we can notate them just fine.  An expression should be able to operate on any JSON literal.  I see no reason why `@.foo == [1, 2]` should be disallowed.",
+              "createdAt": "2021-06-15T07:04:41Z",
+              "updatedAt": "2021-06-15T07:04:41Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjMxNjg1",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:07:47Z",
+          "updatedAt": "2021-06-15T07:07:47Z",
+          "comments": [
+            {
+              "originalPosition": 467,
+              "body": "Resolved in #102",
+              "createdAt": "2021-06-15T07:07:47Z",
+              "updatedAt": "2021-06-15T07:07:47Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjMzNzg3",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:10:15Z",
+          "updatedAt": "2021-06-15T07:10:15Z",
+          "comments": [
+            {
+              "originalPosition": 482,
+              "body": "Resolved in #102",
+              "createdAt": "2021-06-15T07:10:15Z",
+              "updatedAt": "2021-06-15T07:10:15Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjM5Mzc4",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:16:44Z",
+          "updatedAt": "2021-06-15T07:16:45Z",
+          "comments": [
+            {
+              "originalPosition": 513,
+              "body": "Resolved in #102",
+              "createdAt": "2021-06-15T07:16:44Z",
+              "updatedAt": "2021-06-15T07:16:45Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjM5ODE4",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:17:14Z",
+          "updatedAt": "2021-06-15T07:17:14Z",
+          "comments": [
+            {
+              "originalPosition": 514,
+              "body": "Resolved in #102",
+              "createdAt": "2021-06-15T07:17:14Z",
+              "updatedAt": "2021-06-15T07:17:14Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjQyNjEz",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:20:18Z",
+          "updatedAt": "2021-06-15T07:20:19Z",
+          "comments": [
+            {
+              "originalPosition": 492,
+              "body": "`array` and `object` don't have a definition either.\r\nDo you mean expressions that return an array or object?\r\nOr maybe just literals of these types?",
+              "createdAt": "2021-06-15T07:20:18Z",
+              "updatedAt": "2021-06-15T07:20:19Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjQ3OTY4",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:26:08Z",
+          "updatedAt": "2021-06-15T07:26:08Z",
+          "comments": [
+            {
+              "originalPosition": 511,
+              "body": "Note that the parentheses can still be a convention, even if we don't require them.\r\n",
+              "createdAt": "2021-06-15T07:26:08Z",
+              "updatedAt": "2021-06-15T07:26:08Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjU0MTc4",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:32:34Z",
+          "updatedAt": "2021-06-15T07:32:35Z",
+          "comments": [
+            {
+              "originalPosition": 433,
+              "body": "Resolved in #102\r\n\r\n(Of course, we can, and probably will, tweak further.)",
+              "createdAt": "2021-06-15T07:32:35Z",
+              "updatedAt": "2021-06-15T07:32:35Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjU5ODY0",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:38:35Z",
+          "updatedAt": "2021-06-15T07:38:36Z",
+          "comments": [
+            {
+              "originalPosition": 492,
+              "body": "both ...\r\n\r\n`[?@.color in ['red,'green','blue']]`\r\n\r\nor \r\n\r\n`[?@.color in $.validColors]`",
+              "createdAt": "2021-06-15T07:38:36Z",
+              "updatedAt": "2021-06-15T07:39:00Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjYxMzE1",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:40:04Z",
+          "updatedAt": "2021-06-15T07:40:05Z",
+          "comments": [
+            {
+              "originalPosition": 63,
+              "body": "Resolved in #102",
+              "createdAt": "2021-06-15T07:40:04Z",
+              "updatedAt": "2021-06-15T07:40:05Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjYyNTU5",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:41:16Z",
+          "updatedAt": "2021-06-15T07:41:16Z",
+          "comments": [
+            {
+              "originalPosition": 280,
+              "body": "That is again something that should be done in the expression language.",
+              "createdAt": "2021-06-15T07:41:16Z",
+              "updatedAt": "2021-06-15T07:41:16Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjY2NjEz",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:45:24Z",
+          "updatedAt": "2021-06-15T07:45:24Z",
+          "comments": [
+            {
+              "originalPosition": 511,
+              "body": "yes ... I've seen this notation with some implementations in the wild and .. as a minimalist .. I liike it.",
+              "createdAt": "2021-06-15T07:45:24Z",
+              "updatedAt": "2021-06-15T07:45:24Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjcyOTM4",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:51:48Z",
+          "updatedAt": "2021-06-15T07:51:49Z",
+          "comments": [
+            {
+              "originalPosition": 518,
+              "body": "It should perhaps read better:\r\n```\r\nSyntax and behaviour of operators is consistent with the 'C'-family of programming languages.\r\n```\r\nOtherwise we might need to add a table of operator precedence ... which would be no problem though.",
+              "createdAt": "2021-06-15T07:51:48Z",
+              "updatedAt": "2021-06-15T07:51:49Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjg1MzU5",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T08:03:37Z",
+          "updatedAt": "2021-06-15T08:03:37Z",
+          "comments": [
+            {
+              "originalPosition": 518,
+              "body": "FYI: Have a look at how RFC 8949 solves that problem:\r\nhttps://www.rfc-editor.org/rfc/rfc8949.html#section-1.2-6\r\n\r\nThe IESG will insist on a reference to the C standard, I can tell you this much :-)",
+              "createdAt": "2021-06-15T08:03:37Z",
+              "updatedAt": "2021-06-15T08:03:37Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjkzOTc1",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T08:12:03Z",
+          "updatedAt": "2021-06-15T08:12:03Z",
+          "comments": [
+            {
+              "originalPosition": 513,
+              "body": "We can restrict comparisons to simple values only (some say 'scalars`) . You can write here\r\n```\r\n[? @.foo[0] == 1 && @.foo[1] == 2]\r\n```\r\ninstead.\r\n\r\nBenefit in use seems to be low, but complexity might become huge otherwise. \r\n",
+              "createdAt": "2021-06-15T08:12:03Z",
+              "updatedAt": "2021-06-15T08:14:49Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNzAzODYx",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T08:21:35Z",
+          "updatedAt": "2021-06-15T08:21:35Z",
+          "comments": [
+            {
+              "originalPosition": 518,
+              "body": "@Glyn: By \"when\" I mean \"whenever\" in comparable situations, should it goto\r\n\r\n* syntax\r\n* semantics\r\n* informal semantics\r\n\r\nAre there specific rules especially to allocate to the last two.",
+              "createdAt": "2021-06-15T08:21:35Z",
+              "updatedAt": "2021-06-15T08:21:35Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNzQyOTc2",
+          "commit": {
+            "abbreviatedOid": "1dfeb05"
+          },
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T08:58:19Z",
+          "updatedAt": "2021-06-15T08:58:19Z",
+          "comments": [
+            {
+              "originalPosition": 518,
+              "body": "> @glyn: By \"when\" I mean \"whenever\" in comparable situations, should it goto\r\n> \r\n>     * syntax\r\n> \r\n>     * semantics\r\n> \r\n>     * informal semantics\r\n> \r\n> \r\n> Are there specific rules especially to allocate to the last two.\r\n\r\nNo rules, but the idea with array slices was to introduce the semantics gently in the (informative) informal semantics section and then spell out the (normative) semantics, possibly more indigestibly, in the semantics section. But I am not wedded to this convention so long as we don't confuse normative and informative text.",
+              "createdAt": "2021-06-15T08:58:19Z",
+              "updatedAt": "2021-06-15T08:58:19Z"
+            }
+          ]
         }
       ]
     },
@@ -15049,21 +15621,21 @@
       "id": "MDExOlB1bGxSZXF1ZXN0NjY3MTcxNjA0",
       "title": "Updated Pr 98 (selectors reworked)",
       "url": "https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/99",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cabo",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "mit Fix f\u00fcr den YAML-nit",
       "createdAt": "2021-06-10T18:20:24Z",
-      "updatedAt": "2021-06-14T09:50:22Z",
+      "updatedAt": "2021-06-16T10:48:13Z",
       "baseRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
       "baseRefName": "main",
       "baseRefOid": "c8597e87e9735338ceca4eb6a99c15bf5148dcf2",
       "headRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
       "headRefName": "pr-98",
       "headRefOid": "31ee9bc47b4c0b5c73aa73dcfd4d830e03947a0c",
-      "closedAt": null,
+      "closedAt": "2021-06-16T10:48:12Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -15144,6 +15716,13 @@
           "body": "@cabo please rebase",
           "createdAt": "2021-06-14T09:50:22Z",
           "updatedAt": "2021-06-14T09:50:22Z"
+        },
+        {
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "body": "Covered by #102 now.",
+          "createdAt": "2021-06-16T10:48:12Z",
+          "updatedAt": "2021-06-16T10:48:12Z"
         }
       ],
       "reviews": [
@@ -15290,6 +15869,46 @@
               "updatedAt": "2021-06-11T09:28:14Z"
             }
           ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNTY4MjI0",
+          "commit": {
+            "abbreviatedOid": "31ee9bc"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T05:24:31Z",
+          "updatedAt": "2021-06-15T05:24:31Z",
+          "comments": [
+            {
+              "originalPosition": 100,
+              "body": "(Resolved in #102)",
+              "createdAt": "2021-06-15T05:24:31Z",
+              "updatedAt": "2021-06-15T05:24:31Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNTczMDA5",
+          "commit": {
+            "abbreviatedOid": "31ee9bc"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T05:34:46Z",
+          "updatedAt": "2021-06-15T05:34:46Z",
+          "comments": [
+            {
+              "originalPosition": 205,
+              "body": "Done in #102",
+              "createdAt": "2021-06-15T05:34:46Z",
+              "updatedAt": "2021-06-15T05:34:46Z"
+            }
+          ]
         }
       ]
     },
@@ -15434,25 +16053,42 @@
       "id": "MDExOlB1bGxSZXF1ZXN0NjY5NjcxOTMz",
       "title": "Selectors reworked ...",
       "url": "https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/102",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "cabo",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "This is a full rebase of branch pr-98 (#99) on current main.",
       "createdAt": "2021-06-14T15:37:35Z",
-      "updatedAt": "2021-06-14T16:15:12Z",
+      "updatedAt": "2021-06-16T11:51:40Z",
       "baseRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
       "baseRefName": "main",
       "baseRefOid": "43d2e974d64d8f450c7bbc68a9db6d49219343ec",
       "headRepository": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
       "headRefName": "pr-98-try-rebase",
-      "headRefOid": "35de2ed9810a90f6f1aab9fa5ebd71fe7517512f",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "headRefOid": "74035beea2c36dde77445bc9fb28bed1e6cc6226",
+      "closedAt": "2021-06-16T10:09:34Z",
+      "mergedAt": "2021-06-16T10:09:34Z",
+      "mergedBy": "glyn",
+      "mergeCommit": {
+        "oid": "dd2a88eb04038b8d40c61534dc6dac6d4f07fd5b"
+      },
+      "comments": [
+        {
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Does this incorporate any changes from the discussions from #98, or is it a simple rebase?",
+          "createdAt": "2021-06-15T06:27:39Z",
+          "updatedAt": "2021-06-15T06:27:39Z"
+        },
+        {
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "body": "> Does this incorporate any changes from the discussions from #98, or is it a simple rebase?\r\n\r\nIt is a simple rebase, followed by a number of edits coming from the discussions here.\r\nMost of the remaining conversations need some further discussion, so I hope to cover them with my updated slides in a couple of hours.\r\n",
+          "createdAt": "2021-06-15T06:37:18Z",
+          "updatedAt": "2021-06-15T06:44:37Z"
+        }
+      ],
       "reviews": [
         {
           "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzMDk0MTk2",
@@ -15518,6 +16154,1098 @@
           "createdAt": "2021-06-14T16:15:12Z",
           "updatedAt": "2021-06-14T16:15:12Z",
           "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNTcxMTg0",
+          "commit": {
+            "abbreviatedOid": "c7025e2"
+          },
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T05:30:58Z",
+          "updatedAt": "2021-06-15T05:30:58Z",
+          "comments": [
+            {
+              "originalPosition": 252,
+              "body": "Wouldn't it make sense then to simple copy that into here ?",
+              "createdAt": "2021-06-15T05:30:58Z",
+              "updatedAt": "2021-06-15T05:31:33Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjA1ODIz",
+          "commit": {
+            "abbreviatedOid": "766d837"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T06:33:55Z",
+          "updatedAt": "2021-06-15T06:33:56Z",
+          "comments": [
+            {
+              "originalPosition": 154,
+              "body": "Having this as a parenthetical seems good to me. \ud83d\udc4d ",
+              "createdAt": "2021-06-15T06:33:55Z",
+              "updatedAt": "2021-06-15T06:33:56Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjEzMTgy",
+          "commit": {
+            "abbreviatedOid": "766d837"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T06:44:02Z",
+          "updatedAt": "2021-06-15T06:44:03Z",
+          "comments": [
+            {
+              "originalPosition": 252,
+              "body": "Yes.\r\n(Discuss today.)\r\n",
+              "createdAt": "2021-06-15T06:44:03Z",
+              "updatedAt": "2021-06-15T06:44:03Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjA3NTgy",
+          "commit": {
+            "abbreviatedOid": "766d837"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "There are also still some open questions from #98.",
+          "createdAt": "2021-06-15T06:36:34Z",
+          "updatedAt": "2021-06-15T07:09:47Z",
+          "comments": [
+            {
+              "originalPosition": 246,
+              "body": "If we rename this to `string-content` (or similar) we should be able to reuse much of this section as a definition for all strings.",
+              "createdAt": "2021-06-15T06:36:34Z",
+              "updatedAt": "2021-06-15T07:09:47Z"
+            },
+            {
+              "originalPosition": 300,
+              "body": "Do we need to specify \"octal-like\" or should we just leave it as disallowing leading zeroes?",
+              "createdAt": "2021-06-15T06:38:16Z",
+              "updatedAt": "2021-06-15T07:09:47Z"
+            },
+            {
+              "originalPosition": 350,
+              "body": "```suggestion\r\nFor example, selector `[-1]` selects the last and selector `[-2]` selects the next to last element of an array with at least two elements.\r\n```\r\n\r\nor\r\n\r\n```suggestion\r\nFor example, selector `[-1]` selects the last and selector `[-2]` selects the second from the last element of an array with at least two elements.\r\n```\r\n\r\nSeems \"last but one\" _et. al._ [comes from British English](https://www.collinsdictionary.com/dictionary/english/last-but-one-last-but-three-etc), which is fine, but in my experience American English is typically used, and this phrase isn't commonly used in that vernacular.",
+              "createdAt": "2021-06-15T06:51:33Z",
+              "updatedAt": "2021-06-15T07:09:47Z"
+            },
+            {
+              "originalPosition": 7,
+              "body": "This doesn't quite match up with what's actually going on.  Hence [the issue](https://github.com/jsonpath-standard/jsonpath-compliance-test-suite/issues/3) in the compliance test suite I raised.\r\n\r\nI was thinking it worked as you've written, but the referenced algorithm doesn't work exactly that way.",
+              "createdAt": "2021-06-15T07:08:39Z",
+              "updatedAt": "2021-06-15T07:09:47Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjUxODAx",
+          "commit": {
+            "abbreviatedOid": "84e4abc"
+          },
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:30:01Z",
+          "updatedAt": "2021-06-15T07:30:01Z",
+          "comments": [
+            {
+              "originalPosition": 300,
+              "body": "Glyn already suggested to phrase instead: integer base-10",
+              "createdAt": "2021-06-15T07:30:01Z",
+              "updatedAt": "2021-06-15T07:30:01Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjY0Njg0",
+          "commit": {
+            "abbreviatedOid": "0d32e4f"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:43:24Z",
+          "updatedAt": "2021-06-15T07:43:24Z",
+          "comments": [
+            {
+              "originalPosition": 252,
+              "body": "Well, slight massaging required to support both single-quoted and double-quoted strings.\r\nI think we should leave this to a followup PR.",
+              "createdAt": "2021-06-15T07:43:24Z",
+              "updatedAt": "2021-06-15T07:43:24Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNjY1NTM5",
+          "commit": {
+            "abbreviatedOid": "0d32e4f"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T07:44:16Z",
+          "updatedAt": "2021-06-15T07:44:16Z",
+          "comments": [
+            {
+              "originalPosition": 350,
+              "body": "penultimate",
+              "createdAt": "2021-06-15T07:44:16Z",
+              "updatedAt": "2021-06-15T07:44:16Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNzc5MjY0",
+          "commit": {
+            "abbreviatedOid": "0d32e4f"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T09:33:24Z",
+          "updatedAt": "2021-06-15T09:33:24Z",
+          "comments": [
+            {
+              "originalPosition": 300,
+              "body": "Right, but that's in point 2.  We still highlight \"octal-like\" integers in point 3.  Is there a reason we want to call attention to octal over other common number bases?",
+              "createdAt": "2021-06-15T09:33:24Z",
+              "updatedAt": "2021-06-15T09:33:24Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjgzNzgxMDQz",
+          "commit": {
+            "abbreviatedOid": "0d32e4f"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T09:35:14Z",
+          "updatedAt": "2021-06-15T09:35:14Z",
+          "comments": [
+            {
+              "originalPosition": 246,
+              "body": "Suggested in meeting to use `string-literal`",
+              "createdAt": "2021-06-15T09:35:14Z",
+              "updatedAt": "2021-06-15T09:35:14Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0MTE2ODM3",
+          "commit": {
+            "abbreviatedOid": "0d32e4f"
+          },
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T14:51:33Z",
+          "updatedAt": "2021-06-15T14:51:33Z",
+          "comments": [
+            {
+              "originalPosition": 513,
+              "body": "The descendant selector should select all primitive values which are part of the subtree of the input node. For example, `..` applied to the argument `true` should produce `[true]` even though there are no object members or array elements in the argument.\r\n\r\nThe descendant selector should also select _all_ object members and _all_ array elements (the current wording could permit some to be omitted). \r\n```suggestion\r\nThe `descendant-selector` is inspired by ECMAScript for XML (E4X). It selects the node and all its descendants.\r\n```",
+              "createdAt": "2021-06-15T14:51:33Z",
+              "updatedAt": "2021-06-15T14:51:34Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0MjQ3MzEx",
+          "commit": {
+            "abbreviatedOid": "cdb4eeb"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T16:41:21Z",
+          "updatedAt": "2021-06-15T16:41:21Z",
+          "comments": [
+            {
+              "originalPosition": 252,
+              "body": "Resolved as per interim (needed a bit more surgery than I had thought, though).",
+              "createdAt": "2021-06-15T16:41:21Z",
+              "updatedAt": "2021-06-15T16:41:21Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0MjQ3OTE1",
+          "commit": {
+            "abbreviatedOid": "cdb4eeb"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T16:41:57Z",
+          "updatedAt": "2021-06-15T16:41:57Z",
+          "comments": [
+            {
+              "originalPosition": 246,
+              "body": "Resolved as per interim.",
+              "createdAt": "2021-06-15T16:41:57Z",
+              "updatedAt": "2021-06-15T16:41:57Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0MjQ4Mzcx",
+          "commit": {
+            "abbreviatedOid": "cdb4eeb"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T16:42:24Z",
+          "updatedAt": "2021-06-15T16:42:25Z",
+          "comments": [
+            {
+              "originalPosition": 300,
+              "body": "Please check as now updated.",
+              "createdAt": "2021-06-15T16:42:25Z",
+              "updatedAt": "2021-06-15T16:42:25Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0MjQ4OTg3",
+          "commit": {
+            "abbreviatedOid": "cdb4eeb"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T16:43:01Z",
+          "updatedAt": "2021-06-15T16:43:01Z",
+          "comments": [
+            {
+              "originalPosition": 350,
+              "body": "We didn't discuss this, so I left it, but \"penultimate\" really is the way to go.",
+              "createdAt": "2021-06-15T16:43:01Z",
+              "updatedAt": "2021-06-15T16:43:01Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0MjQ5MzMz",
+          "commit": {
+            "abbreviatedOid": "cdb4eeb"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T16:43:23Z",
+          "updatedAt": "2021-06-15T16:43:23Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "We didn't discuss this, so I left it for a future PR",
+              "createdAt": "2021-06-15T16:43:23Z",
+              "updatedAt": "2021-06-15T16:43:23Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0MjQ5OTI1",
+          "commit": {
+            "abbreviatedOid": "cdb4eeb"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T16:44:01Z",
+          "updatedAt": "2021-06-15T16:44:01Z",
+          "comments": [
+            {
+              "originalPosition": 513,
+              "body": "I didn't see this yet when I made a different change.  Please check...",
+              "createdAt": "2021-06-15T16:44:01Z",
+              "updatedAt": "2021-06-15T16:44:01Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0MzA3NzI4",
+          "commit": {
+            "abbreviatedOid": "cdb4eeb"
+          },
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "I left some comments or suggestions. I am now going on vacation, so apologies if I don't participate further for a couple of weeks.",
+          "createdAt": "2021-06-15T17:37:25Z",
+          "updatedAt": "2021-06-15T18:23:31Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "@mkmik did quite a bit of work on the array slicing spec, so I'd like to acknowledge him somewhere.",
+              "createdAt": "2021-06-15T17:37:25Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            },
+            {
+              "originalPosition": 70,
+              "body": "we import terms with initial capitals and then lower case them in use, e.g. immeditately below. I'm _reasonably_ comfortable with this, but it doesn't seem quite correct.",
+              "createdAt": "2021-06-15T17:39:49Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            },
+            {
+              "originalPosition": 161,
+              "body": "\"selectors\" is too general here.\r\n```suggestion\r\n  * Union selector `[<sel1>,<sel2>,...,<selN>]`, holding a comma delimited list of index, index wild card, array slice, and filter selectors.\r\n```",
+              "createdAt": "2021-06-15T17:44:32Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            },
+            {
+              "originalPosition": 163,
+              "body": "It may be better to move this before the union selector to avoid forward references.",
+              "createdAt": "2021-06-15T17:45:38Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            },
+            {
+              "originalPosition": 195,
+              "body": "Hmmm. I don't think `$` is the name of the root selector. It _is_ the root selector.\r\n```suggestion\r\nEvery valid JSONPath query MUST begin with the root selector `$`.\r\n```",
+              "createdAt": "2021-06-15T17:47:40Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            },
+            {
+              "originalPosition": 205,
+              "body": "I don't think it's necessary to talk about naming or anonymity here. Also, denoting the argument by `$` doesn't make it the root node - it already was the root node. It enables us to _address_ the node.",
+              "createdAt": "2021-06-15T17:49:51Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            },
+            {
+              "originalPosition": 284,
+              "body": "Don't repeat the syntax in the semantics section.\r\n```suggestion\r\n```",
+              "createdAt": "2021-06-15T17:52:38Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            },
+            {
+              "originalPosition": 285,
+              "body": "```suggestion\r\nA `dot-wild-selector` acts as a wild card by selecting the nodes of all member values of an object as well as all element nodes of\r\n```",
+              "createdAt": "2021-06-15T17:53:00Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            },
+            {
+              "originalPosition": 300,
+              "body": "It may address no member values or no array elements.\r\n```suggestion\r\nAn index selector `[<index>]` addresses at most one object member value or at most one array element value.\r\n```",
+              "createdAt": "2021-06-15T17:58:37Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            },
+            {
+              "originalPosition": 449,
+              "body": "```suggestion\r\nFor example, selector `[0]` selects the first and selector `[4]` the fifth element of a sufficiently long array.\r\n```",
+              "createdAt": "2021-06-15T18:10:53Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            },
+            {
+              "originalPosition": 479,
+              "body": "Same issue as before - don't put syntax in the semantics section.\r\n```suggestion\r\nAn `index-wild-selector`\r\n```",
+              "createdAt": "2021-06-15T18:12:57Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            },
+            {
+              "originalPosition": 481,
+              "body": "Should talk about selecting nodes rather than values.",
+              "createdAt": "2021-06-15T18:13:31Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            },
+            {
+              "originalPosition": 524,
+              "body": "@gregsdennis pointed out before that omitting the three integers always leaves behind _two_ separating colons when only one colon is valid. The ABNF is correct, but the description here contradicts it.",
+              "createdAt": "2021-06-15T18:15:21Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            },
+            {
+              "originalPosition": 578,
+              "body": "The descendant selector should select all primitive values which are part of the subtree of the input node. For example, `..*` applied to the argument `true` should produce `[true]` even though there are no object members or array elements in the argument.\r\n\r\nThe descendant selector should also select _all_ object members and _all_ array elements (the current wording could permit some to be omitted).\r\n```suggestion\r\nIt selects the node and all its descendants..\r\n```",
+              "createdAt": "2021-06-15T18:17:40Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            },
+            {
+              "originalPosition": 602,
+              "body": "For the record, \"ws\" is far more memorable than \"S\".",
+              "createdAt": "2021-06-15T18:19:24Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            },
+            {
+              "originalPosition": 650,
+              "body": "We also need absolute path values such as `$.foo`.",
+              "createdAt": "2021-06-15T18:21:52Z",
+              "updatedAt": "2021-06-15T18:23:31Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0MzgzNDc4",
+          "commit": {
+            "abbreviatedOid": "cdb4eeb"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T18:59:31Z",
+          "updatedAt": "2021-06-15T18:59:31Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "I put him back to the contributors section (sorry about that).",
+              "createdAt": "2021-06-15T18:59:31Z",
+              "updatedAt": "2021-06-15T18:59:31Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0MzgzODIx",
+          "commit": {
+            "abbreviatedOid": "cdb4eeb"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T18:59:56Z",
+          "updatedAt": "2021-06-15T18:59:57Z",
+          "comments": [
+            {
+              "originalPosition": 70,
+              "body": "That's my German (nouns with caps, adjectives with lower case).  Fixed.",
+              "createdAt": "2021-06-15T18:59:57Z",
+              "updatedAt": "2021-06-15T18:59:57Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0Mzg2MTI5",
+          "commit": {
+            "abbreviatedOid": "6e7144c"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T19:02:46Z",
+          "updatedAt": "2021-06-15T19:02:47Z",
+          "comments": [
+            {
+              "originalPosition": 195,
+              "body": "Indeed.",
+              "createdAt": "2021-06-15T19:02:46Z",
+              "updatedAt": "2021-06-15T19:02:47Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0Mzg3NzYw",
+          "commit": {
+            "abbreviatedOid": "6e7144c"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T19:04:42Z",
+          "updatedAt": "2021-06-15T19:04:43Z",
+          "comments": [
+            {
+              "originalPosition": 205,
+              "body": "Changed this -- a bit redundant now.",
+              "createdAt": "2021-06-15T19:04:43Z",
+              "updatedAt": "2021-06-15T19:04:43Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0Mzg4OTU0",
+          "commit": {
+            "abbreviatedOid": "6e7144c"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T19:06:08Z",
+          "updatedAt": "2021-06-15T19:06:08Z",
+          "comments": [
+            {
+              "originalPosition": 284,
+              "body": "Can't leave the \"it\" floating; slightly rephrased.",
+              "createdAt": "2021-06-15T19:06:08Z",
+              "updatedAt": "2021-06-15T19:06:08Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0MzkwMTk0",
+          "commit": {
+            "abbreviatedOid": "bfde93e"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T19:07:36Z",
+          "updatedAt": "2021-06-15T19:07:36Z",
+          "comments": [
+            {
+              "originalPosition": 284,
+              "body": "Oh, you have better text below.",
+              "createdAt": "2021-06-15T19:07:36Z",
+              "updatedAt": "2021-06-15T19:07:36Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0MzkzOTIz",
+          "commit": {
+            "abbreviatedOid": "4876c3b"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T19:12:16Z",
+          "updatedAt": "2021-06-15T19:12:17Z",
+          "comments": [
+            {
+              "originalPosition": 481,
+              "body": "Fixed.",
+              "createdAt": "2021-06-15T19:12:16Z",
+              "updatedAt": "2021-06-15T19:12:17Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0Mzk0NzY0",
+          "commit": {
+            "abbreviatedOid": "4876c3b"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T19:13:16Z",
+          "updatedAt": "2021-06-15T19:13:16Z",
+          "comments": [
+            {
+              "originalPosition": 524,
+              "body": "Wait, the step is optional in the syntax, too.",
+              "createdAt": "2021-06-15T19:13:16Z",
+              "updatedAt": "2021-06-15T19:13:16Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0Mzk2ODUw",
+          "commit": {
+            "abbreviatedOid": "47306e9"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T19:15:48Z",
+          "updatedAt": "2021-06-15T19:15:48Z",
+          "comments": [
+            {
+              "originalPosition": 578,
+              "body": "To do: Define \"descendants\" (making sure that member values are, but member names aren't).",
+              "createdAt": "2021-06-15T19:15:48Z",
+              "updatedAt": "2021-06-15T19:15:48Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0Mzk4MjU3",
+          "commit": {
+            "abbreviatedOid": "47306e9"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T19:17:32Z",
+          "updatedAt": "2021-06-15T19:17:32Z",
+          "comments": [
+            {
+              "originalPosition": 602,
+              "body": "If you are stuck in an ABNF littered with them, S is sufficiently memorable...\r\n\r\n(WS really should be for mandatory whitespace, OWS is optional whitespace, but that is too long here.)",
+              "createdAt": "2021-06-15T19:17:32Z",
+              "updatedAt": "2021-06-15T19:17:32Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0Mzk4OTcz",
+          "commit": {
+            "abbreviatedOid": "47306e9"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T19:18:25Z",
+          "updatedAt": "2021-06-15T19:18:25Z",
+          "comments": [
+            {
+              "originalPosition": 650,
+              "body": "Todo for next PR...",
+              "createdAt": "2021-06-15T19:18:25Z",
+              "updatedAt": "2021-06-15T19:18:25Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0NDYyMzAz",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "sthagen",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "Looks like a good next step on our path.",
+          "createdAt": "2021-06-15T20:34:42Z",
+          "updatedAt": "2021-06-15T20:41:15Z",
+          "comments": [
+            {
+              "originalPosition": 167,
+              "body": "I have a hard time understanding what a node of a value might be. This seems to be dimensionally wrong. Maybe there are too many objects in that sentence?",
+              "createdAt": "2021-06-15T20:34:42Z",
+              "updatedAt": "2021-06-15T20:41:15Z"
+            },
+            {
+              "originalPosition": 602,
+              "body": "I never got that color thing people associate with space - maybe I should buy me a printer and do some archaeology? Just  `S` or `SP` should do nicely.",
+              "createdAt": "2021-06-15T20:40:18Z",
+              "updatedAt": "2021-06-15T20:41:15Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0NDcyNDkx",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-15T20:47:31Z",
+          "updatedAt": "2021-06-15T20:47:32Z",
+          "comments": [
+            {
+              "originalPosition": 524,
+              "body": "The ABNF syntax is correct (last time I looked!). It's just the above sentence which is misleading.",
+              "createdAt": "2021-06-15T20:47:32Z",
+              "updatedAt": "2021-06-15T20:47:32Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0NDc0MDc3",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "As I'm going away, approving so I don't block progress. I think @cabo has responded to most if not all my comments.",
+          "createdAt": "2021-06-15T20:49:38Z",
+          "updatedAt": "2021-06-15T20:49:38Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0NzYzMjMy",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T06:19:43Z",
+          "updatedAt": "2021-06-16T06:19:43Z",
+          "comments": [
+            {
+              "originalPosition": 602,
+              "body": "I am fine with \"S\" (minimalistic :). Is there a convention to write constants in capitals?",
+              "createdAt": "2021-06-16T06:19:43Z",
+              "updatedAt": "2021-06-16T06:19:43Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0NzYzNzg3",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T06:20:42Z",
+          "updatedAt": "2021-06-16T06:20:42Z",
+          "comments": [
+            {
+              "originalPosition": 650,
+              "body": "this is a `json-path` then.",
+              "createdAt": "2021-06-16T06:20:42Z",
+              "updatedAt": "2021-06-16T06:20:42Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0NzcxMzIw",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-06-16T06:32:24Z",
+          "updatedAt": "2021-06-16T06:57:18Z",
+          "comments": [
+            {
+              "originalPosition": 556,
+              "body": "Seems to be misleading (I know my wording). It was surely adopted by Python before 2014. So skip `later`.",
+              "createdAt": "2021-06-16T06:32:24Z",
+              "updatedAt": "2021-06-16T06:57:18Z"
+            },
+            {
+              "originalPosition": 670,
+              "body": "For the next PR:\r\n\r\nThinking a bit more about `in-op` leads me to the conclusion, that this operator makes sense only for arrays.\r\n`'key' in $.obj` is equivalent to `$.obj.key` and `'key' in <literal-object>` seems to be useless. I see no other rational here. Someone else ?",
+              "createdAt": "2021-06-16T06:50:45Z",
+              "updatedAt": "2021-06-16T06:57:18Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0ODUwODA4",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T08:04:45Z",
+          "updatedAt": "2021-06-16T08:04:46Z",
+          "comments": [
+            {
+              "originalPosition": 167,
+              "body": "I agree that this is rather verbose now.  Maybe\r\n\r\n> Finally, `.b` selects from any input node of type object any node corresponding to a member named `b`.\r\n\r\n(requires editing the line above it as well)",
+              "createdAt": "2021-06-16T08:04:45Z",
+              "updatedAt": "2021-06-16T08:05:29Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0ODU1MzQ5",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T08:09:23Z",
+          "updatedAt": "2021-06-16T08:09:23Z",
+          "comments": [
+            {
+              "originalPosition": 300,
+              "body": "You just added \"As in JSON numbers...\"\r\n\r\n>3. As in JSON numbers, the syntax does not allow octal-like integers with leading zeros such as `01` or `-01`.\r\n\r\nThat doesn't address my concern at all.  My question is about the callout of _octal_ and exclusion of other number bases such as binary and hexadecimal.",
+              "createdAt": "2021-06-16T08:09:23Z",
+              "updatedAt": "2021-06-16T08:09:23Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0ODU1ODQw",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T08:09:53Z",
+          "updatedAt": "2021-06-16T08:09:54Z",
+          "comments": [
+            {
+              "originalPosition": 350,
+              "body": "I'm okay with this.",
+              "createdAt": "2021-06-16T08:09:53Z",
+              "updatedAt": "2021-06-16T08:09:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0ODU4MTg2",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T08:12:15Z",
+          "updatedAt": "2021-06-16T08:14:57Z",
+          "comments": [
+            {
+              "originalPosition": 604,
+              "body": "Repetition of \"It\" and extra period (ironically).\r\n\r\n```suggestion\r\nThe `descendant-selector` is inspired by ECMAScript for XML (E4X).\r\nIt selects the node and all its descendants.\r\n```",
+              "createdAt": "2021-06-16T08:12:15Z",
+              "updatedAt": "2021-06-16T09:52:44Z"
+            },
+            {
+              "originalPosition": 602,
+              "body": "Do we need to make concession for multiple whitespace chars (e.g. `*ws` or `*S`), or is that implicitly covered?",
+              "createdAt": "2021-06-16T08:14:57Z",
+              "updatedAt": "2021-06-16T08:14:57Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0ODY4NjA3",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Added some comments that I'm happy to have resolved in a follow-up non-functional edit PR.",
+          "createdAt": "2021-06-16T08:22:35Z",
+          "updatedAt": "2021-06-16T08:22:35Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0OTM1OTY0",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T09:26:19Z",
+          "updatedAt": "2021-06-16T09:26:19Z",
+          "comments": [
+            {
+              "originalPosition": 650,
+              "body": "That is a simple solution that we can refine later.  Put it in.",
+              "createdAt": "2021-06-16T09:26:19Z",
+              "updatedAt": "2021-06-16T09:26:19Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0OTM5MDc1",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T09:29:17Z",
+          "updatedAt": "2021-06-16T09:29:17Z",
+          "comments": [
+            {
+              "originalPosition": 602,
+              "body": "RFC 8610 defines this as:\r\n\r\n     S = *WS\r\n     WS = SP / NL\r\n     SP = %x20\r\n     NL = COMMENT / CRLF\r\n     COMMENT = \";\" *PCHAR CRLF\r\n     PCHAR = %x20-7E / %x80-10FFFD\r\n     CRLF = %x0A / %x0D.0A\r\n\r\nI'm not sure we need to support comments in JSONPath (that is a serious question though), but if you remove that, pesky details like isolated CRs are fixed, too (and then CDDL simply disallows HTs, which may not be popular here).\r\n\r\nNext PR...",
+              "createdAt": "2021-06-16T09:29:17Z",
+              "updatedAt": "2021-06-16T09:29:17Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0OTQxMTQ0",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T09:31:15Z",
+          "updatedAt": "2021-06-16T09:31:16Z",
+          "comments": [
+            {
+              "originalPosition": 602,
+              "body": "Oh, and I'm not sure these can all be called constants, but there is indeed a tendency in ABNF usage to give token-level (scanner) productions such as DIGIT, ALPHA, WS, ... upper case names.",
+              "createdAt": "2021-06-16T09:31:15Z",
+              "updatedAt": "2021-06-16T09:31:16Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0OTQ0MDQ2",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T09:34:11Z",
+          "updatedAt": "2021-06-16T09:34:11Z",
+          "comments": [
+            {
+              "originalPosition": 670,
+              "body": "there is still the \"enum\" use case, as in `$.service_level in [\"silver\", \"gold\"]`, which is an abbreviation for `$.service_level == \"silver\" || $.service_level == \"gold\"`.",
+              "createdAt": "2021-06-16T09:34:11Z",
+              "updatedAt": "2021-06-16T09:34:11Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0OTUyNTEz",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T09:42:33Z",
+          "updatedAt": "2021-06-16T09:42:34Z",
+          "comments": [
+            {
+              "originalPosition": 556,
+              "body": "A quick search finds it in Python in 2009, but I didn't check further.\r\nChanged to \", and that of Python\".\r\n\r\nBTW, do we support negative steps?",
+              "createdAt": "2021-06-16T09:42:33Z",
+              "updatedAt": "2021-06-16T09:42:34Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0OTU0MjY3",
+          "commit": {
+            "abbreviatedOid": "6e58652"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T09:44:17Z",
+          "updatedAt": "2021-06-16T09:44:17Z",
+          "comments": [
+            {
+              "originalPosition": 604,
+              "body": "Fixed.",
+              "createdAt": "2021-06-16T09:44:17Z",
+              "updatedAt": "2021-06-16T09:44:17Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0OTU1Mjkx",
+          "commit": {
+            "abbreviatedOid": "74035be"
+          },
+          "author": "goessner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T09:45:23Z",
+          "updatedAt": "2021-06-16T09:45:24Z",
+          "comments": [
+            {
+              "originalPosition": 670,
+              "body": "well ... this is the `in <array>` use case.",
+              "createdAt": "2021-06-16T09:45:23Z",
+              "updatedAt": "2021-06-16T09:45:24Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0OTYwMDA3",
+          "commit": {
+            "abbreviatedOid": "74035be"
+          },
+          "author": "gregsdennis",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T09:50:05Z",
+          "updatedAt": "2021-06-16T09:50:06Z",
+          "comments": [
+            {
+              "originalPosition": 556,
+              "body": "The current test suite and the comparison matrix _does_ have negative step cases.",
+              "createdAt": "2021-06-16T09:50:05Z",
+              "updatedAt": "2021-06-16T09:50:06Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg0OTgyMjAx",
+          "commit": {
+            "abbreviatedOid": "74035be"
+          },
+          "author": "glyn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T10:13:29Z",
+          "updatedAt": "2021-06-16T10:13:29Z",
+          "comments": [
+            {
+              "originalPosition": 556,
+              "body": "@cabo Negative steps are also supported in the spec. See for example Table 4.",
+              "createdAt": "2021-06-16T10:13:29Z",
+              "updatedAt": "2021-06-16T10:13:29Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg1MDY2NDQ2",
+          "commit": {
+            "abbreviatedOid": "74035be"
+          },
+          "author": "cabo",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-06-16T11:51:39Z",
+          "updatedAt": "2021-06-16T11:51:40Z",
+          "comments": [
+            {
+              "originalPosition": 556,
+              "body": "Thanks.  It just occurred to me as the semantics section needs to gain more content.",
+              "createdAt": "2021-06-16T11:51:39Z",
+              "updatedAt": "2021-06-16T11:51:40Z"
+            }
+          ]
         }
       ]
     }
