@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-06-27T01:07:22.584466+00:00",
+  "timestamp": "2021-06-29T00:56:57.018754+00:00",
   "repo": "ietf-wg-jsonpath/draft-ietf-jsonpath-base",
   "labels": [
     {
@@ -4515,59 +4515,17 @@
         "glyn"
       ],
       "labels": [],
-      "body": "Edit: corrected the final paragraph below to talk about full **non**-determinism instead of full determinism.\r\n\r\nAt today's meeting, I agreed to submit a PR to float the idea of partial determinism for the descendants operator, even though the consensus seems to be against any determinism for that operator. Given the descendants operator PR https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/102 isn't yet merged, I'll start with an issue to capture discussion and avoid rebasing effort.\r\n\r\nWe probably don't want to _force_ any determinism on implementations, so the idea is to provide a recommendation for implementations which want to provide partial determinism and use \"SHOULD\" language so the recommendation is optional. Then implementations which opt in will agree on the ordering recommentations.\r\n\r\nThe benefits of partial determinism are:\r\n* improved predictability and interoperation\r\n* relative ease for JSONPath users writing tests, as there are fewer possible outputs.\r\n\r\nIn PR https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/102 there are no constraints on the non-determinism of the descendants operator:\r\n> The `descendant-selector` is inspired by ECMAScript for XML (E4X). It selects object members and array elements in a recursive descent process.\r\n\r\n(See also a [suggested improvement](https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/102/files#r651871638) to the above text.)\r\n\r\nWe agreed in issue https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/issues/60 to allow non-determinism in the order in which objects are iterated and the same should be true when the descendants operator encounters an object. But there are other details of the ordering which could be tied down:\r\n* arrays SHOULD be visited in array order\r\n* nodes SHOULD be visited strictly before their descendants (so-called _pre-order_ traversal).\r\n\r\n(_Post-order_ traversal, in which nodes are visited strictly after their descendants, would be an equally valid alternative.)\r\n\r\nOne of the reasons given at today's meeting for allowing full non-determinism was for parallel processing, so it would be interesting to discuss what constraints the above rules produce on parallel processing. The order of collection of the results seems to be more significant than whether or not parallel processing is used.",
+      "body": "At today's meeting, I agreed to submit a PR to float the idea of partial determinism for the descendants operator, even though the consensus seems to be against any determinism for that operator. Given the descendants operator PR https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/102 isn't yet merged, I'll start with an issue to capture discussion and avoid rebasing effort.\r\n\r\nWe probably don't want to _force_ any determinism on implementations, so the idea is to provide a recommendation for implementations which want to provide partial determinism and use \"SHOULD\" language so the recommendation is optional. Then implementations which opt in will agree on the ordering recommentations.\r\n\r\nThe benefits of partial determinism are:\r\n* improved predictability and interoperation\r\n* relative ease for JSONPath users writing tests, as there are fewer possible outputs.\r\n\r\nIn PR https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/102 there are no constraints on the non-determinism of the descendants operator:\r\n> The `descendant-selector` is inspired by ECMAScript for XML (E4X). It selects object members and array elements in a recursive descent process.\r\n\r\n(See also a [suggested improvement](https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/pull/102/files#r651871638) to the above text.)\r\n\r\nWe agreed in issue https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/issues/60 to allow non-determinism in the order in which objects are iterated and the same should be true when the descendants operator encounters an object. But there are other details of the ordering which could be tied down:\r\n* arrays SHOULD be visited in array order\r\n* nodes SHOULD be visited strictly before their descendants (so-called _pre-order_ traversal).\r\n\r\n(_Post-order_ traversal, in which nodes are visited strictly after their descendants, would be an equally valid alternative.)\r\n\r\nOne of the reasons given at today's meeting for allowing full non-determinism was for parallel processing, so it would be interesting to discuss what constraints the above rules produce on parallel processing. The order of collection of the results seems to be more significant than whether or not parallel processing is used.",
       "createdAt": "2021-06-15T15:13:00Z",
-      "updatedAt": "2021-06-26T09:11:58Z",
+      "updatedAt": "2021-06-27T06:06:31Z",
       "closedAt": null,
       "comments": [
         {
           "author": "gregsdennis",
           "authorAssociation": "COLLABORATOR",
-          "body": "My preference is _pre-order_ traversal (node then descendants).\r\n\r\n> One of the reasons given at today's meeting for allowing full determinism was for parallel processing...\r\n\r\nDo you mean \"... for _not requiring_ full determinism...\"?  Full determinism would be requiring a specified ordering, but what we're saying is that we _don't_ want that because parallel processing can't guarantee it.",
+          "body": "My preference is _pre-order_ traversal (node then descendants).",
           "createdAt": "2021-06-22T11:22:12Z",
-          "updatedAt": "2021-06-22T11:22:12Z"
-        },
-        {
-          "author": "glyn",
-          "authorAssociation": "COLLABORATOR",
-          "body": "Yes, I meant to write \"... for allowing full non-determinism ...\".\n\nOn Tue, 22 Jun 2021, 12:22 Greg Dennis, ***@***.***> wrote:\n\n> My preference is *pre-order* traversal (node then descendants).\n>\n> One of the reasons given at today's meeting for allowing full determinism\n> was for parallel processing...\n>\n> Do you mean \"... for *not requiring* full determinism...\"? Full\n> determinism would be requiring a specified ordering, but what we're saying\n> is that we *don't* want that because parallel processing can't guarantee\n> it.\n>\n> \u2014\n> You are receiving this because you were assigned.\n> Reply to this email directly, view it on GitHub\n> <https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/issues/103#issuecomment-865899040>,\n> or unsubscribe\n> <https://github.com/notifications/unsubscribe-auth/AAAXF2KKIQ7VUL45I5XJRI3TUBW7FANCNFSM46XPPL6Q>\n> .\n>\n",
-          "createdAt": "2021-06-22T14:07:03Z",
-          "updatedAt": "2021-06-22T14:07:03Z"
-        },
-        {
-          "author": "glyn",
-          "authorAssociation": "COLLABORATOR",
-          "body": "**Please ignore this comment. (Need to re-engage brain after holidays...)**\r\n\r\n> nodes SHOULD be visited strictly before their descendants\r\n\r\nGiven that each node has either a single value or is an array or an object, the above statement doesn't mean much, since `..` doesn't visit array indices or object keys.\r\n\r\nSo the constraints boil down to \"arrays SHOULD be visited in array order\".",
-          "createdAt": "2021-06-26T07:13:43Z",
-          "updatedAt": "2021-06-26T09:11:58Z"
-        },
-        {
-          "author": "gregsdennis",
-          "authorAssociation": "COLLABORATOR",
-          "body": "That's not quite correct.  `..` adds objects and arrays to the result set as well as their children.  This is just saying they're added _before_ their children.",
-          "createdAt": "2021-06-26T08:52:30Z",
-          "updatedAt": "2021-06-26T08:52:30Z"
-        },
-        {
-          "author": "glyn",
-          "authorAssociation": "COLLABORATOR",
-          "body": "Yes, my mistake. Not doing too well with this issue so far..\n\nOn Sat, 26 Jun 2021, 09:52 Greg Dennis, ***@***.***> wrote:\n\n> That's not quite correct. .. adds objects and arrays to the result set as\n> well as their children. This is just saying they're added *before* their\n> children.\n>\n> \u2014\n> You are receiving this because you were assigned.\n> Reply to this email directly, view it on GitHub\n> <https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/issues/103#issuecomment-868971261>,\n> or unsubscribe\n> <https://github.com/notifications/unsubscribe-auth/AAAXF2NGOM5OKVYBGCFV2LLTUWINPANCNFSM46XPPL6Q>\n> .\n>\n",
-          "createdAt": "2021-06-26T08:56:22Z",
-          "updatedAt": "2021-06-26T08:56:22Z"
-        },
-        {
-          "author": "glyn",
-          "authorAssociation": "COLLABORATOR",
-          "body": "@gregsdennis This issue is now a bit of a mess. I'd like to fix the OP and then IMO it would be good to delete all the other comments except for your ordering preference in https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base/issues/103#issuecomment-865899040. wdyt?",
-          "createdAt": "2021-06-26T09:03:44Z",
-          "updatedAt": "2021-06-26T09:03:44Z"
-        },
-        {
-          "author": "gregsdennis",
-          "authorAssociation": "COLLABORATOR",
-          "body": "I think put a summary at the top, then a line break and then leave what's there. I'd prefer to retain the history.\n\nI don't think it's a mess, though.  I think it's fine to leave as is.",
-          "createdAt": "2021-06-26T09:06:24Z",
-          "updatedAt": "2021-06-26T09:06:24Z"
+          "updatedAt": "2021-06-27T06:04:14Z"
         }
       ]
     }
